@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+.vase_logo {
+	height: 200px;
+	width: 1900px;
+}
+.vase_wrap{
+	text-align: center;
+}
+.vase {
+	height: 600px;
+	width: 370px;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.artificial_flowers_logo {
+	height: 200px;
+	width: 1900px;
+}
+.artificial_flowers_wrap{
+	text-align: center;
+}
+.artificial_flowers {
+	height: 600px;
+	width: 370px;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.basket_logo {
+	height: 200px;
+	width: 1900px;
+}
+.basket_wrap{
+	text-align: center;
+}
+.basket {
+	height: 600px;
+	width: 370px;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.candlestick_logo {
+	height: 200px;
+	width: 1900px;
+}
+.candlestick_wrap{
+	text-align: center;
+}
+.candlestick {
+	height: 600px;
+	width: 370px;
+	display: inline-block;
+	margin-left: 30px;
+}
