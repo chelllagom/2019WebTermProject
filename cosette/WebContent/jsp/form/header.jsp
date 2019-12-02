@@ -11,7 +11,7 @@
 <body>
   <div id="header">
     <div class="header_bar">
-    <div class="header_logmenu"> <a href="#"><img src="../../images/login.PNG" width="58" height="27" /></a>
+    <div class="header_logmenu"> <a href="../login/login.jsp"><img src="../../images/login.PNG" width="58" height="27" /></a>
     </div>
      <div class="searchbox">
       <form action="" method="post" name="search">
@@ -30,15 +30,15 @@
     <div class="header_menu">
     	<ul>
        	  <span class="header_span_menu">
-  			<li><a href="../itempage/vase.jsp">화병</a></li>
-  			<li><a href="../itempage/artificial_flowers.jsp">조화</a></li>
-  			<li><a href="../itempage/basket.jsp">바구니</a></li>
-            <li><a href="../itempage/candlestick.jsp">촛대</a></li>
-  			<li><a href="#">월데코</a></li>
-  			<li><a href="#">테이블</a></li>
-            <li><a href="#">장식소품</a></li>
-  			<li><a href="#">트레이</a></li>
-            <li><a href="#">패브릭  </a></li>
+  			<li><a href="../itempage/item.jsp?title=화병">화병</a></li> <!-- ?title=화병 뒷부분에 DB에서 받을 값 이름도 같이 넘겨서 사진 받아주세여 -->
+  			<li><a href="../itempage/item.jsp?title=조화">조화</a></li>
+  			<li><a href="../itempage/item.jsp?title=바구니">바구니</a></li>
+            <li><a href="../itempage/item.jsp?title=촛대">촛대</a></li>
+  			<li><a href="../itempage/item.jsp?title=월데코">월데코</a></li>
+  			<li><a href="../itempage/item.jsp?title=키친">키친</a></li>
+            <li><a href="../itempage/item.jsp?title=장식소품">장식소품</a></li>
+  			<li><a href="../itempage/item.jsp?title=트레이">트레이</a></li>
+            <li><a href="../itempage/item.jsp?title=패브릭">패브릭  </a></li>
        	  </span>
     	</ul>
     </div>

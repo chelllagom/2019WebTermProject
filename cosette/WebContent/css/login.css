@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+body {
+   	margin: 0;
+}
+div.container {
+	margin: 200px auto 200px auto ;
+   	width: 600px;
+}
+p.title {
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	letter-spacing: -6px;
+	 color: #000;
+}
+.p{
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: #555;
+}
+.form-area table {
+	background-color: #FFF;
+   	border: 1px solid #dadada;
+	margin-bottom: 15px;
+	border-collapse: collapse;
+	width: 100%;
+	
+}
+.form-area table:last-child {
+	margin-bottom: 0;
+}
+.form-area table tr td {
+	border-bottom: 1px solid #f0f0f0;
+   	padding: 5px 10px;
+}
+.form-area table tr:last-child td {
+	border-bottom: 1px solid #dadada;
+}
+.input-text {
+	border: none;
+	height: 30px;
+	padding: 2px 0px;
+	width: 100%;
+	font-size: 14px;
+}
+.button-area {
+	text-align: center;
+	padding: 10px 0;
+	float: left;
+}
+.button01 {
+	display: inline-block;
+	width: 280px;
+	font-size: 18px;
+	letter-spacing: -1px;
+	font-weight: bold;
+	height: 50px;
+	line-height: 55px;
+	text-decoration: none;
+	border-radius: 0;
+	background-color: #000;
+	color: #FFF;
+}
+.button01:hover {
+	-webkit-transition: all 0.4s ease-in-out; 
+	-moz-transition: all 0.4s ease-in-out; 
+	-o-transition: all 0.4s ease-in-out; 
+	transition: all 0.4s ease-in-out; 
+	background-color: #FFF;
+	color: #000;
+	border-style: solid;
+}
