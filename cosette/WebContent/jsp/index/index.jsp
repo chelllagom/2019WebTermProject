@@ -38,29 +38,29 @@ function MM_swapImage() { //v3.0
   <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
   
   <div class="main_img">
-  	<img src="../../images/mainimg.PNG" />
+  	<img src="../../images/mainimg.PNG" onerror="javascript:this.src='../../images/mainimg.png'"/>
   </div>
   
   <div class="ranking_logo">
-  	<img src="../../images/rankinglogo.PNG" />
+  	<img src="../../images/rankinglogo.PNG" onerror="javascript:this.src='../../images/rankinglogo.png'"/>
   </div>
   
   <%for(int i =0; i<4; i++){ %>
 	<div class="ranking_img">	
   		<a href="../itempage/detail.jsp">
-  			<img src="../../images/sampleimg1.PNG" width="369" height="595"/>
+  			<img src="../../images/sampleimg1.PNG" onerror="javascript:this.src='../../images/sampleimg1.png'" width="369" height="595"/>
   		</a>
 	</div>
   <%} %>
   
   
   <div class="new_product_logo">
-   <img src="../../images/newproductlogo.PNG" width="1900" height="213" />
+   <img src="../../images/newproductlogo.PNG" onerror="javascript:this.src='../../images/newproductlogo.png'" width="1900" height="213" />
    </div>
   <%for(int i =0; i<8; i++){ %>
 	<div class="ranking_img">
 		<a href="../itempage/detail.jsp">
-  			<img src="../../images/sampleimg1.PNG" width="369" height="595"/>
+  			<img src="../../images/sampleimg1.PNG" onerror="javascript:this.src='../../images/sampleimg1.png'" width="369" height="595"/>
   		</a>
 	</div>
   <%} %>
@@ -86,12 +86,12 @@ function MM_swapImage() { //v3.0
     
     <div class="bestseller_imgbar">
       <div class="bestseller_img">
-      <img src="../../images/bestseller_11.PNG" name="bestseller_event" width="1602" height="552" id="bestseller_event" />
+      <img src="../../images/bestseller_11.PNG" onerror="javascript:this.src='../../images/bestseller_11.png'" name="bestseller_event" width="1602" height="552" id="bestseller_event" />
       </div>
     </div>
   </div>
   <div class="background_img">
-    <img src="../../images/background.PNG" width="1899" height="390" />
+    <img src="../../images/background.PNG" onerror="javascript:this.src='../../images/background.png'" width="1899" height="390" />
   </div>
   
   
