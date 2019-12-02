@@ -36,51 +36,35 @@ function MM_swapImage() { //v3.0
 
 <div id="wrap">
   <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
-  <div class="main_img"><img src="../../images/mainimg.PNG" width="1899" height="500" />
+  
+  <div class="main_img">
+  	<img src="../../images/mainimg.PNG" />
   </div>
+  
   <div class="ranking_logo">
-  <img src="../../images/rankinglogo.png" width="1898" height="184" />
+  	<img src="../../images/rankinglogo.PNG" />
   </div>
-  <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-   <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-   <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-  <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
+  
+  <%for(int i =0; i<4; i++){ %>
+	<div class="ranking_img">	
+  		<a href="../itempage/detail.jsp">
+  			<img src="../../images/sampleimg1.PNG" width="369" height="595"/>
+  		</a>
+	</div>
+  <%} %>
+  
   
   <div class="new_product_logo">
    <img src="../../images/newproductlogo.PNG" width="1900" height="213" />
    </div>
-  <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-   <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-   <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-  <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-  <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-   <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-   <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
-  <div class="ranking_img">
-  <img src="../../images/sampleimg1.PNG"/>
-  </div>
+  <%for(int i =0; i<8; i++){ %>
+	<div class="ranking_img">
+		<a href="../itempage/detail.jsp">
+  			<img src="../../images/sampleimg1.PNG" width="369" height="595"/>
+  		</a>
+	</div>
+  <%} %>
+  
   
   <div class="bestseller_logo">
   <img src="../../images/bestseller_01.png" width="1900" height="127" />
