@@ -22,7 +22,10 @@
   </div>
  	 
     <div class="header_name">
-      <div class="header_name_img"> <a href="../index/index.jsp"><img src="../../images/headername.PNG" width="397" height="47" /></a>
+      <div class="header_name_img">
+      	<a href="../index/index.jsp">
+      	<img src="../../images/new_headername.PNG" 
+      		onerror="javascript:this.src='../../images/new_headername.png'" width="294" height="44" /></a>
       </div>
      
     </div>
