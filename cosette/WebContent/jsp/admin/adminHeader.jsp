@@ -45,7 +45,7 @@
             </div>
             <div class="in_1box2">
                 <div class="name">
-                    <strong>admin</strong>
+                    <strong><a href="admin.jsp">admin</a></strong>
                 </div>
             </div>
             <div class="in_1box3" style="margin-top: 100px;">
@@ -53,23 +53,20 @@
 			        <ul>
 			            <li class="menu"><a>상품 관리</a>
 			            	<ul class="hide">
-			                    <li><a>상품 등록</a></li>
-			                    <li><a>상품 수정</a></li>
-			                    <li><a>상품 삭제</a></li>
+			                    <li><a href="productRegister.jsp">상품 등록</a></li>
+			                    <li><a href="productDelete.jsp">상품 삭제</a></li>
 			                </ul>
 			            </li>
 			            <li class="menu"><a>판매 관리</a>
 			            	<ul class="hide">
-			                    <li><a>주문 조회</a></li>
-			                    <li><a>반품 관리</a></li>
-			                    <li><a>교환 관리</a></li>
+			                    <li><a href="orderCheck.jsp">주문 조회</a></li>
+			                    <li><a href="return.jsp">반품 관리</a></li>
 			                </ul>
 			            </li>
 			            <li class="menu"><a>회원 관리</a>
 			                <ul class="hide">
-			                    <li><a>문의 관리</a></li>
-			                    <li><a>회원 조회</a></li>
-			                    <li><a>회원 수정</a></li>
+			                    <li><a href="memberCheck.jsp">회원 조회</a></li>
+			                    <li><a href="memberDelete.jsp">회원 삭제</a></li>
 			                </ul>
 			            </li>
 			        </ul>

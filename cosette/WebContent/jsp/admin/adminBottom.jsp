@@ -9,34 +9,19 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script>
-    // html dom 이 다 로딩된 후 실행된다.
-    $(document).ready(function(){
-        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-        $(".menu>a").click(function(){
-            var submenu = $(this).next("ul");
- 
-            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
-            }else{
-                submenu.slideDown();
-            }
-        });
-    });
-</script>
+
 
 </head>
 <body>
 <div class="in_2box4">
-            	<div class="in_2box4_1">
-            		<div style= "text-align: center;">
-            			<strong>미답변 관리</strong>
-            		</div>
-            	</div>
+   	<div class="in_2box4_1">
+   		<div style= "text-align: center;">
+   			<strong>미답변 관리</strong>
+   		</div>
+   	</div>
             	
-            	<hr></hr>
-            		<jsp:include page="../board/mini_list.jsp" flush="true"></jsp:include>
-            </div>
+   	<hr></hr>
+<jsp:include page="../board/mini_list.jsp" flush="true"></jsp:include>
+</div>
 </body>
 </html>

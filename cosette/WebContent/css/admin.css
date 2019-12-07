@@ -133,3 +133,36 @@ nav ul li:hover >ul {
 	width: 450px;
 	height: 460px;
 }
+
+table.type03 {
+	width: 1000px;
+	height: 500px;
+    text-align: left;
+    line-height: 1.5;
+    border-left: 3px solid #369;
+  	font-size : 1.3em;
+}
+table.type03 th {
+    width: 147px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #153d73;
+}
+table.type03 td {
+    width: 349px;
+    padding: 10px;
+    vertical-align: top;
+    color: #555;
+}
+
+table.type02 {
+	border: 2px double #153d73;
+	width: 1000px;
+	height: 500px;
+}
+table.type02 td,th{
+	border:1px solid #369;
+	text-align: center;
+	padding:5px;
+}
