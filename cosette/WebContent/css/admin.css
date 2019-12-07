@@ -1,0 +1,71 @@
+@charset "EUC-KR";
+#wrap{
+	width: 1900px;
+}
+.box1 {
+	width: 268px;
+	height: 800px;
+	float: left;
+	background-color: #3f4b5c;
+}
+.in_1box1{
+	width: 268px;
+	height: 267px;
+}
+.in_1box2{
+	width: 268px;
+	height: 100px;
+	display: inline-block;
+}
+.in_1box3{
+	width: 268px;
+	height: 70px;
+	background-color: blue;
+}
+.name{
+	font-size: 2em;
+	text-align: center;
+	margin-top: 30px;
+}
+.box2 {
+	width: 1632px;
+	height: 800px;
+	float: left;
+	background-color: rgb(237, 240, 245);
+}
+.in_2box1{
+	width: 1632px;
+	height: 60px;
+	background-color: rgb(77, 81, 89);
+}
+.in_2box2{
+	width: 360px;
+	height: 120px;
+	background-color: white;
+	float: left;
+	margin-top: 20px;
+	margin-left: 35px;
+}
+.in_2box3{
+	width: 1000px;
+	height: 500px;
+	background-color: white;
+	float: left;
+	margin-top: 40px;
+	margin-left: 35px;
+}
+.in_2box4{
+	width: 450px;
+	height: 500px;
+	background-color: white;
+	float: left;
+	margin-top: 40px;
+	margin-left: 80px;
+}
+
+.menu a{
+	cursor:pointer;
+}
+.menu .hide{
+	display:none;
+}

@@ -16,21 +16,21 @@
 		<div class="container">
 		<p class="title">LOGIN</p>
 		<br>
-		<form action="../index/index.jsp" method="post">
+		<form action="session_Login.jsp" method="post">
 		<div class="form-area">
 			<!-- ID, PWD -->
 			<table>
 				<tr>
 					<td>
 						<span>
-							<input type="text" id="id" class="input-text" placeholder="아이디" maxlength="20">
+							<input type="text" id="id" name="id" class="input-text" placeholder="아이디" maxlength="20">
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<span>
-							<input type="password" id="password" class="input-text" placeholder="비밀번호" maxlength="20">
+							<input type="password" id="password" name="password" class="input-text" placeholder="비밀번호" maxlength="20">
 						</span>
 					</td>
 				</tr>

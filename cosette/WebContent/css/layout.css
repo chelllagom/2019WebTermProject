@@ -19,7 +19,12 @@ li a {
 li a:hover{
 	color: #9BBCEE;
 }
-
+.loginBotton{
+	color: white;
+}
+.loginBotton:hover{
+	color: #555;
+}
 #header {
 	height: auto;
 	width: 1900px;
