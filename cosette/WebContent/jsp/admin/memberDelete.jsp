@@ -13,7 +13,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script>
     function idDelete(delID){
-               location.href = "delete.jsp?id=" + delID;                  
+               location.href = "delete.jsp?id=" + delID;                 
     }
     function searchCheck(frm){
         if(frm.keyWord.value ==""){
