@@ -3,18 +3,20 @@ package my.model;
 public class Member {
 	private String memberId;
 	private String password;
-	private String tel;
 	private String name;
+	private String tel;
+	private String email;
 	private String address;
 	
 	public Member() {}
 
-	public Member(String memberId, String password, String tel, String name, String address) {
+	public Member(String memberId, String password, String tel, String name, String email, String address) {
 		super();
 		this.memberId = memberId;
 		this.password = password;
 		this.tel = tel;
 		this.name = name;
+		this.email = email;
 		this.address = address;
 	}
 
@@ -56,6 +58,14 @@ public class Member {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	
