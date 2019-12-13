@@ -133,6 +133,68 @@ function MM_swapImage() { //v3.0
 		
 		</div>
 	</div>
+	
+	<div id=button_wrap>
+<div class="section">
+    <div class="section__item">
+        <a href="#0" class="sm-link sm-link_padding-all sm-link5">
+            <span style="color: #475fda !important; font-weight: 800 !important; font-size: 2em !important;"
+             class="sm-link__label">상세정보</span>
+        </a>
+    </div>
+</div>
+<div class="section">
+    <div class="section__item">
+        <a href="#1" class="sm-link sm-link_padding-all sm-link5">
+            <span style="color: #475fda !important; font-weight: 800 !important; font-size: 2em !important;"
+            class="sm-link__label">  Q&A  </span>
+        </a>
+    </div>
+</div>
+<div class="section">
+    <div class="section__item">
+        <a href="#2" class="sm-link sm-link_padding-all sm-link5">
+            <span style="color: #475fda !important; font-weight: 800 !important; font-size: 2em !important;"
+            class="sm-link__label">  반품/교환정보  </span>
+        </a>
+    </div>
+</div>
+
+</div>
+
+	
+	<div id="table_wrap">
+		<a name="0">
+		<table class="type02">
+    		<tr>
+        		<th scope="row">상품상태</th>
+        			<td>새상품</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">제조사</th>
+        			<td>산기대 IT경영학과</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">모델명</th>
+        			<td>상품상세참조</td>
+    		</tr>
+		</table>
+		</a>
+		<table class="type02">
+    		<tr>
+        		<th scope="row">상품번호</th>
+        			<td>데베 상품번호</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">브랜드</th>
+        			<td>코제트</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">원산지</th>
+        			<td>경기도 시흥시 정왕동</td>
+    		</tr>
+		</table>
+	</div>
 
 
 <jsp:include page="detailUnder.jsp" flush="true"></jsp:include>

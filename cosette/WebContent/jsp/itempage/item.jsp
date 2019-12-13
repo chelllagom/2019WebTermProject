@@ -24,10 +24,14 @@
   <div class="item_wrap">
 	<%for(int i =0; i<16; i++){ %>   <!-- 한 줄에 4개의 사진을 4줄 보여줘서 총 16개의 사진을 보여줄려고 합니다. 데베에 연결해서 값 받아주세여 -->
 	<div class="item">
-		<a href="../itempage/detail.jsp">	
-  			<img src="../../images/vase/vase_sample.PNG" width="369" height="595"/>
-  		</a>
-	</div>
+		<a href="../itempage/detail.jsp">
+			<div class="item_img">
+	  			<img src="../../images/vase/vase01_thumb.png" width="300" height="390"/>
+	  		</div>
+	  	</a>
+  	</div>
+  	
+  </div>
 	<%} %>
   </div>
   
