@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+li{
+	display : inline;
+	width: 20px;
+	height: 20px;
+	padding-left: 100px;
+	padding-top: 0px;
+	font-size: 20px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	color: #555;
+	list-style-type: none;
+}
+li a {
+	color: #000;
+	text-decoration: none;
+}
+li a:hover{
+	color: #9BBCEE;
+}
+.loginBotton{
+	color: white;
+}
+.loginBotton:hover{
+	color: #555;
+}
+#header {
+	height: auto;
+	width: 1900px;
+}
+.header_name {
+	height: 140px;
+	width: 1900px;
+}
+.header_menu {
+	height: 60px;
+	width: 1900px;
+}
+.header_name_img {
+	height: 47px;
+	width: 397px;
+	padding-top: 46px;
+	padding-left: 800px;
+}
+.header_span_menu{
+	padding-left: 180px;
+	padding-top: 15px;
+	float:left;
+}
+.header_logmenu {
+	height: auto;
+	width: auto;
+	float: right;
+	margin-top: 15px;
+	margin-right: 150px;
+}
+.header_bar {
+	height: 123px;
+	width: 1900px;
+	background-image:url("../images/headerbar.png");
+}
+.searchbox{
+	float:right;
+	margin-top: 24px;
+	margin-right: 200px;
+	clear: right;
+}
+.inline{
+	display:inline;
+}
+.p1{
+	font-size: 20px;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #FFF;
+	float:left;
+	padding-top: 40px;
+	padding-left: 250px; 
+}
+.p2{
+	font-size: 15px;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #FFF;
+	float:leff;
+}
+
+
+
+.footer {
+    font-size: 17px;
+}
+.area_contact{
+	margin-left: 180px;
+}
+body, input, textarea, select, button, table {
+    font-family: 나눔고딕, "Nanum Gothic", 나눔스퀘어, "Nanum Square", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Dotum", "돋움", "Helvetica", "sans-serif";
+    font-size: 12px;
+    line-height: 1.5em;
+}
+.copyright{
+	margin-top: 40px;
+	margin-left: 100px;
+}
+.contact_item{
+	float: left;
+	margin-top: 50px;
+	margin-left: 100px;
+}
+.block{
+	float: left;
+	clear: left;
+	margin-bottom: 50px;
+}
+
+
+.main_img {
+	height: 500px;
+	width: 1900px;
+}
+.ranking_logo {
+	height: 184px;
+	width: 1900px;
+}
+.ranking_img {
+	height: 600px;
+	width: 370px;
+	float: left;
+	margin-top: 60px;
+	margin-left: 84px;
+}
+.new_product_logo {
+	height: 213px;
+	width: 1900px;
+	float:left;
+}
+.bestseller_logo {
+	height: 127px;
+	width: 1900px;
+	float:left;
+}
+.bestseller_miniimg{
+	width: 1900px;
+	float:left;
+	text-align: center;
+}
+.mini_img {
+	height: 66px;
+	width: 137px;
+	margin-top: 30px;
+	margin-left: 15px;
+	display: inline-block;
+}
+.mini_img:hover{
+	background-color: #000;
+}
+
+.bestseller_imgbar {
+	float: left;
+	height: 600px;
+	width: 1900px;
+	text-align:center;
+	margin-top: 15px;
+}
+.bestseller_img {
+	height: 553px;
+	width: 1603px;
+	display: inline-block;
+	margin-top: 35px;
+}
+.backgroundimg{
+	float:left;
+}
