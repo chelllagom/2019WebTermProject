@@ -151,8 +151,71 @@ totalPrice *= 10;
 		
 		</div>
 	</div>
+	
+	<div id=button_wrap>
+<div class="section">
+    <div class="section__item">
+        <a href="#0" class="sm-link sm-link_padding-all sm-link5">
+            <span style="color: #475fda !important; font-weight: 800 !important; font-size: 2em !important;"
+             class="sm-link__label">상세정보</span>
+        </a>
+    </div>
+</div>
+<div class="section">
+    <div class="section__item">
+        <a href="#1" class="sm-link sm-link_padding-all sm-link5">
+            <span style="color: #475fda !important; font-weight: 800 !important; font-size: 2em !important;"
+            class="sm-link__label">  Q&A  </span>
+        </a>
+    </div>
+</div>
+<div class="section">
+    <div class="section__item">
+        <a href="#2" class="sm-link sm-link_padding-all sm-link5">
+            <span style="color: #475fda !important; font-weight: 800 !important; font-size: 2em !important;"
+            class="sm-link__label">  반품/교환정보  </span>
+        </a>
+    </div>
+</div>
 
+</div>
 
+	
+	<div id="table_wrap">
+		<a name="0">
+		<table class="type02">
+    		<tr>
+        		<th scope="row">상품상태</th>
+        			<td>새상품</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">제조사</th>
+        			<td>${product.maker}</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">모델명</th>
+        			<td>${product.name}</td>
+    		</tr>
+		</table>
+		</a>
+		<table class="type02">
+    		<tr>
+        		<th scope="row">상품번호</th>
+        			<td>${productId}</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">브랜드</th>
+        			<td>코제트</td>
+    		</tr>
+    		<tr>
+        		<th scope="row">원산지</th>
+        			<td>${product.origin}</td>
+    		</tr>
+		</table>
+	</div>
+<div id="img_wrap">
+		<img src="../../images/${product.detailimg}"/>
+	</div>
 <jsp:include page="detailUnder.jsp" flush="true"></jsp:include>
 </div>
 
