@@ -6,15 +6,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
-<body>
 <script>
- /*  c=confirm("장바구니에 담으시겠습니까?");
-  if(c==true)
-    document.write("장바구니 ㄱㄱ");
-  else if(c==false)
-    document.write("취소함"); */
-  
-  
+function writeCheck(){
+	window.opener.location.href ="../mypage/cart.jsp" ;
+	window.close();
+}
 </script>
+<body>
+<%
+	String a=request.getParameter("id");
+	String b=request.getParameter("count");
+%>
+<!-- 확인용으로 만들어봄 -->
+<%-- 아이디:<%=a %> + 수량:<%=b %> --%>
+<div>
+<img src="../../images/cart.PNG" width="378" height="240" usemap="#cart" border="0" />
+<map name="cart" id="cart">
+  <area shape="rect" coords="48,141,217,204" OnClick="writeCheck();" />
+  <area shape="rect" coords="226,141,333,205" OnClick="window.close();"/>
+</map>
+</div>
 </body>
 </html>

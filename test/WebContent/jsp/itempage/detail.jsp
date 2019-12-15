@@ -4,16 +4,15 @@
 <%@ page import="my.dao.*,my.util.*,my.model.*,java.util.*,java.sql.*" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<SCRIPT LANGUAGE="JavaScript">
+<script>
 function cart(){
-    if(confirm("장바구니에 상품을 담았습니다?")){
-        location.href = "write_del_ok.jsp?num=1";
-        return true;
-    } else {
-        return false;
-    }
+	var id = document.getElementById("productId").value; //상품아이디
+	var count = document.getElementById("amount").value; //상품 개수 담아서 보내기
+	var popupX = (window.screen.width / 2) - (378 / 2);
+	var popupY= (window.screen.height / 2) - (240 / 2);
+	window.open("cart_popup.jsp?id="+id+"&count="+count, "startpop", "width=378, height=240,scrollbars=no, resizable=no ,status=no ,left='+ popupX + ', top='+ popupY");
 }
-</SCRIPT>
+</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>인테리어소품 코제트</title>
@@ -124,7 +123,7 @@ totalPrice *= 10;
     			</tr>
     			<tr>
         			<th scope="row">배송비</th>
-        				<td>3,500원 (50,000원 이상 구매 시 무료 / 제주, 도서지역 추가 3,000원)</td>
+        				<td>3,500원 (제주, 도서지역 추가 3,000원)</td>
     			</tr>
     			<tr>
         			<th scope="row">배송비 결제</th>
@@ -145,11 +144,13 @@ totalPrice *= 10;
 						</td>
     			</tr>
 			</table>
+			<!-- 장바구니 팝업 위한 hidden input -->
+			<input type="hidden" id="productId" value="${product.productId}"/>
 			<hr></hr>
 			<br/>
 			
 			<div style=" text-align: right; width: 560px; height: 50px;">
-				<span class="total_price">총 금액 <%=totalPrice %> 원</span>
+				<span class="total_price">총 금액 <%=totalPrice +3500%> 원</span>
 			</div>
 			
 			<div id="btn_group">
