@@ -11,19 +11,6 @@
 	function writeCheck() {
 		var form = document.writeform;
 
-		if (!form.name.value) // form 에 있는 name 값이 없을 때
-		{
-			alert("이름을 적어주세요"); // 경고창 띄움
-			form.name.focus(); // form 에 있는 name 위치로 이동
-			return;
-		}
-
-		if (!form.password.value) {
-			alert("비밀번호를 적어주세요");
-			form.password.focus();
-			return;
-		}
-
 		if (!form.title.value) {
 			alert("제목을 적어주세요");
 			form.title.focus();
@@ -41,7 +28,7 @@
 </script>
 </head>
 <body>
-	<table>
+	<table style="margin-left: auto; margin-right: auto;">
 		<form name=writeform method=post action="write_ok.jsp">
 			<tr>
 				<td>
@@ -65,25 +52,7 @@
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4"></td>
 						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">이름</td>
-							<td><input name="name" size="50" maxlength="50"></td>
-							<td>&nbsp;</td>
-						</tr>
-						<tr height="1" bgcolor="#dddddd">
-							<td colspan="4"></td>
-						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">비밀번호</td>
-							<td><input type="password" name="password" size="50"
-								maxlength="50"></td>
-							<td>&nbsp;</td>
-						</tr>
-						<tr height="1" bgcolor="#dddddd">
-							<td colspan="4"></td>
-						</tr>
+						
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">내용</td>

@@ -6,12 +6,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>인테리어소품 코제트</title>
 <link href="../../css/detailUnder.css" rel="stylesheet" type="text/css" />
+<SCRIPT LANGUAGE="JavaScript">
 
+function openPop()
+{
+window.open("../board/write.jsp", "startpop", "top=0, left=0, width=470, height=300, scrollbars=no, resizable=no ,status=no ,toolbar=no");
+}
+
+</SCRIPT>
 </head>
 <body>
 
 <div id="under_wrap">	
-	
+	<div id="img_wrap">
+		<img src="../../images/detail/vase_detail_full_sample.png"/>
+		<br></br>
+		<img style="margin-left: 280px;" src="../../images/detail/detail_info.PNG"/>
+		<br></br>
+		<img style="margin-left: 280px;" src="../../images/detail/detail_info1.PNG"/>
+	</div>
 	
 <br></br><br></br>	
 <div id=button_wrap>
@@ -45,13 +58,16 @@
 	
 	<div id=qna_wrap>
 		<a name="1">
-		<img style="margin-left: 345px;" src="../../images/detail/qna1.png"/>
+		<img style="margin-left: 345px;" src="../../images/detail/qna.png" width="1190" height="191" usemap="#Map" border="0" />
+	  	<map name="Map" id="Map">
+	    	<area shape="rect" coords="5,120,172,166" href="javascript:openPop()" usemap="#Map" />
+	  	</map>
 		<table class="tbl-ex">
     	<tr>
-			<th>답변상태</th>
 			<th>제목</th>
 			<th>작성자</th>
 			<th>작성일</th>
+			<th>처리</th>
 		</tr>
 		<tr>
 			<td>데베</td>

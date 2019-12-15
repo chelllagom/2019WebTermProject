@@ -1,4 +1,4 @@
-package my.service;
+/*package my.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -43,3 +43,4 @@ public class UpdateMessageService {
 
 
 
+*/

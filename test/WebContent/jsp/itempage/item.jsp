@@ -13,16 +13,33 @@
 <body>
 <%
 	request.setCharacterEncoding("utf-8");
-	String title = request.getParameter("title");
+
 	Connection conn = ConnectionProvider.getConnection();
 	List<Product> products = null;
-	try{
-		ProductDao dao = new ProductDao();
-		if(title.equals("전체"))
-			products = dao.selectList(conn);
-		else
-			products = dao.selectListByProductType(conn, title);
-	}catch(SQLException e){}
+	String a= "";
+	String title = request.getParameter("title");
+	if(title == null){
+		String searchbox = request.getParameter("searchbox");
+		if(searchbox.equals("")){
+			a="\""+searchbox+"\"에 대한 검색 결과가 없습니다.";
+		}else{
+		a="\""+searchbox+"\"에 대한 검색 결과입니다.";
+		try{
+			ProductDao dao = new ProductDao();
+			products = dao.selectListByProductName(conn, searchbox);
+		}catch(SQLException e){}
+		}
+		
+	}else{
+		a=title;
+		try{
+			ProductDao dao = new ProductDao();
+			if(title.equals("전체"))
+				products = dao.selectList(conn);
+			else
+				products = dao.selectListByProductType(conn, title);
+		}catch(SQLException e){}
+	}
 %>
 <c:set var="list" value="<%=products %>"/>
 <div id="wrap">
@@ -30,15 +47,29 @@
 
   <div class="title_wrap">
   	<div class="title_wrap2">
-  		<h1 style="font-size : 3em; color: #555;" class="title"><%=title%></h1>
+  		<h1 style="font-size : 3em; color: #555;" class="title"><%=a%></h1>
   	</div>
   </div>
+  
   <div class="item_wrap">
 	<c:if test="${list!=null}">
 		<c:forEach var="product" items="${list}">
 			<div class="item">
-			<a href="../itempage/detail.jsp?productId=${product.productId}">	
-  			<img src="../../images/${product.thumbnailimg}" width="369" height="595"/></a>
+				<a href="../itempage/detail.jsp?productId=${product.productId}">	
+  					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
+  				</a>
+  				<div class="thumb_name"><strong>${product.name}</strong></div>
+  				<div class="thumb_price">
+  					<strong>
+  						<span class="number">${product.price}원</span> 
+  					</strong>
+  					<strong >
+  						<span style="margin-left: 10px;" class="sale">${product.discount}%</span>
+  					</strong>
+  				</div>
+  				<div class="thumb_memo">
+  					<p>${product.memo}</p>
+  				</div>
 			</div>
 		</c:forEach>
 	</c:if>

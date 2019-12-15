@@ -10,9 +10,9 @@
 </head>
 
 <body>
+<div class="footer">
 <br><br><br><br><br>
 <hr style="opacity: 0.4;">
-<div class="footer">
         <div class="area_contact">
             <dl class="contact_item">
                 <dt><strong>인테리어소품, 코제트</strong></dt>

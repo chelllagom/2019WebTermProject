@@ -12,17 +12,48 @@
 
 
 .item_wrap{
-	text-align: center;
+	width: 1600px;
 	height: auto;
-	background-color: yellow;
+	margin-left: 150px;
+	margin-right: 150px;
+	
 }
 .item {
-	width: 350px;
-	height: 500px;
+	width: 295px;
+	height: 510px;
 	display: inline-block;
-	margin-left: 50px;
-	margin-top: 60px;
-	background-color: red;
+	margin-top: 80px;
+	margin-left: 90px;
+}
+.thumb_name{
+	width: 295px;
+	height: 30px;
+	margin-top: 20px;
+	font-size : 2em;
+	font-weight: bold;
+}
+.thumb_price{
+	width: 295px;
+	height: 20px;
+	font-size : 1.5em;
+	font-weight: bold;
+}
+.number{
+	font-family: Tahoma, 나눔고딕, "Nanum Gothic", 나눔스퀘어, "Nanum Square", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Dotum", "돋움", "sans-serif";
+    color: #222;
+    line-height: 17px;
+}
+.sale{
+	color: #6b90dc;
+	font-size : 0.8em;
+	
+}
+.thumb_memo{
+	width: 295px;
+	height: 45px;
+	line-height: 1.42em;
+	font-size : 1.2em;
+    color: #888;
 }
 .item_img{
 	width: 300px;

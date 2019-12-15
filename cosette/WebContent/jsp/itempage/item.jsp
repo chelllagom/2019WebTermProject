@@ -33,12 +33,28 @@
   		<h1 style="font-size : 3em; color: #555;" class="title"><%=title%></h1>
   	</div>
   </div>
+  
   <div class="item_wrap">
 	<c:if test="${list!=null}">
 		<c:forEach var="product" items="${list}">
 			<div class="item">
-			<a href="../itempage/detail.jsp?productId=${product.productId}">	
-  			<img src="../../images/${product.thumbnailimg}" width="369" height="595"/></a>
+				<a href="../itempage/detail.jsp?productId=${product.productId}">	
+  					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
+  				</a>
+  				<div class="thumb_name"><strong>제목입니다.</strong></div>
+  				<div class="thumb_price">
+  					<strong>
+  						<span class="number">가격</span>
+  						<span class="number">원</span>
+  					</strong>
+  					<strong >
+  						<span style="margin-left: 10px;" class="sale">할인</span>
+  						<span class="sale">%</span>
+  					</strong>
+  				</div>
+  				<div class="thumb_memo">
+  					<p>메모메모메모설명설명설명</p>
+  				</div>
 			</div>
 		</c:forEach>
 	</c:if>

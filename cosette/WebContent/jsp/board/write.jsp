@@ -41,6 +41,7 @@
 </script>
 </head>
 <body>
+  <div id="write_wrap">	
 	<table>
 		<form name=writeform method=post action="write_ok.jsp">
 			<tr>
@@ -108,6 +109,7 @@
 			</tr>
 		</form>
 	</table>
+  </div>
 </body>
 </body>
 </html>

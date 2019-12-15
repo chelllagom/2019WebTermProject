@@ -69,7 +69,7 @@ totalPrice *= 10;
 		<div class="detail_menu">
 			<div class="detail_img_wrap">
 				<div class="detail_img">
-  					<img src="../../images/${product.thumbnailimg}"/>
+  					<img src="../../images/${product.thumbnailimg}" width="410px;" height="533px;"/>
 				</div>
 				<div calss="detail_miniimg">
 				</div>
@@ -84,7 +84,8 @@ totalPrice *= 10;
 			<br></br><br></br><br></br>
 			
 			<div style=" text-align: right; width: 560px; height: 40px;">
-				<span class="price"> ${price}</span>
+				<span class="sale" style="font-size: 1.5em; font-weight: bold;"> ${discount}% 할인중</span>
+				&nbsp;&nbsp; <span class="price"> ${price} 원</span>
 			</div>
 			
 			<div class="box">
@@ -127,9 +128,9 @@ totalPrice *= 10;
         			<th scope="row">수량</th>
         				<td>
         					<select name='amount' id="amount">
-  								<option value='1'>1</option>
-  								<option value='2'>2</option>
-  								<option value='3'>3</option>
+  								<option value='1'>1 개</option>
+  								<option value='2'>2 개</option>
+  								<option value='3'>3 개</option>
 							</select>
 						</td>
     			</tr>
@@ -138,7 +139,7 @@ totalPrice *= 10;
 			<br/>
 			
 			<div style=" text-align: right; width: 560px; height: 50px;">
-				<span class="total_price"> <%=totalPrice %></span>
+				<span class="total_price">총 금액 <%=totalPrice %> 원</span>
 			</div>
 			
 			<div id="btn_group">
@@ -190,18 +191,18 @@ totalPrice *= 10;
     		</tr>
     		<tr>
         		<th scope="row">제조사</th>
-        			<td>${product.maker}</td>
+        			<td>산기대 IT경영학과</td>
     		</tr>
     		<tr>
         		<th scope="row">모델명</th>
-        			<td>${product.name}</td>
+        			<td>상품상세참조</td>
     		</tr>
 		</table>
 		</a>
 		<table class="type02">
     		<tr>
         		<th scope="row">상품번호</th>
-        			<td>${productId}</td>
+        			<td>데베 상품번호</td>
     		</tr>
     		<tr>
         		<th scope="row">브랜드</th>
@@ -209,13 +210,12 @@ totalPrice *= 10;
     		</tr>
     		<tr>
         		<th scope="row">원산지</th>
-        			<td>${product.origin}</td>
+        			<td>경기도 시흥시 정왕동</td>
     		</tr>
 		</table>
 	</div>
-<div id="img_wrap">
-		<img src="../../images/${product.detailimg}"/>
-	</div>
+
+
 <jsp:include page="detailUnder.jsp" flush="true"></jsp:include>
 </div>
 

@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>인테리어소품 코제트</title>
+
 </head>
 <body>
 
@@ -37,11 +38,10 @@
 <table cellpadding="0" cellspacing="0" border="0" style="font-size: 1em;">
   <tr height="5"><td width="5"></td></tr>
  <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-   <td width="380">제목</td>
-   <td width="58">작성자</td>
-   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
-  </tr>
+   <td width="320">제목</td>
+   <td width="60">작성자</td>
+   <td width="60">처리여부</td>
+ </tr>
   
 <%-- <%
 	if(total==0) {
@@ -64,11 +64,10 @@
 
 <tr height="25" align="center">
 	<td>&nbsp;</td>
-	<%-- <td><%=idx %></td>
-	<td align="left"><a href="view.jsp?idx=<%=idx%>"><%=title %></td>
-	<td align="center"><%=name %></td>
-	<td align="center"><%=time %></td>
-	<td align="center"><%=hit %></td> --%>
+	<%-- 
+	<td width="320">제목DB</td>
+    <td width="60">작성자DB</td>
+    <td><input type=button value="처리"></td> --%>
 	<td>&nbsp;</td>
 </tr>
 

@@ -14,8 +14,8 @@
     <div class="header_logmenu">
 	    <ul class="nav">	
 			<%
-				if(session.getAttribute("sessionID") == null) // 로그인이 안되었을 때
-	        		{ 
+				if(session.getAttribute("LOGIN") == null) // 로그인이 안되었을 때
+	        		{
 			%>
 				<li><a href="../login/login.jsp"><span class="loginBotton">로그인</span></a></li>
 			<%
@@ -29,7 +29,7 @@
 		</ul>
     </div>
      <div class="searchbox">
-      <form action="" method="post" name="search">
+      <form action="../itempage/item.jsp" method="post" name="search">
     	<input name="searchbox" type="text" 
         style="background-color:transparent;border:0 solid black;width:200px;height:35px;font-size:15px;"/>
       </form>

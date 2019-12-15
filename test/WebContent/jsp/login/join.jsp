@@ -331,13 +331,14 @@ function validatePassword2()
 		 
         <tr>
         <th bgcolor="#eeeeee" scope="row">아이디<span class="list"> *</span></th>
-					<td>
-					
-						<span>
-							<input type="text" id="userId" name="userId" class="input-text" placeholder="아이디" maxlength="20" onfocusout="validateUserId()"/>
-						</span>
-						<div id="userId_alert" class="alert">공백없이 4~16자의 영문/숫자를 조합하여 입력해주세요.</div>
-					</td>
+			<td>
+				<span>
+					<input type="text" id="userId" name="userId" class="input-text" placeholder="아이디" maxlength="20" onfocusout="validateUserId()"/>
+				<input type="button" value="중복확인"/>
+				</span>
+				
+				<div id="userId_alert" class="alert">공백없이 4~16자의 영문/숫자를 조합하여 입력해주세요.</div>
+			</td>
 		</tr>
         
         <tr>
@@ -407,6 +408,7 @@ function validatePassword2()
             <input type="text" name="email2" id="email2" class="input-text" placeholder="이메일" maxlength="20" onfocusout="validateEmail2()" />
             <span id="email1_alert" class="alert"></span>
             <span id="email2_alert" class="alert"></span>
+            <input type="button" value="중복확인"/>
             </div>
             
             <select name="email3" id="email3"  onchange="hotinsert(this.value)">

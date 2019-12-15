@@ -51,7 +51,7 @@
 	
 	<div id=qna_wrap>
 		<a name="1">
-		<img style="margin-left: 345px;" src="../../images/detail/qna1.png"/>
+		<img style="margin-left: 345px;" src="../../images/detail/qna.png"/>
 		<table class="tbl-ex">
     	<tr>
 			<th>답변상태</th>

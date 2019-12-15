@@ -7,7 +7,8 @@
 <title>인테리어소품 코제트</title>
 <script language=javascript>
    self.window.alert("입력한 글을 저장하였습니다.");
-   location.href="list.jsp"; 
+   window.close();
+   /* location.href="list.jsp";  */
 </script>
 
 </head>

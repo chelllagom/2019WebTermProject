@@ -254,6 +254,40 @@ public class ProductDao {
 		return productList;
 	}
 	
+	
+	public List<Product> selectListByProductName(Connection conn, String keyWord) 
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Product> productList = null;
+		try {
+			pstmt = conn.prepareStatement
+					("select * from product where name like '%"+keyWord.trim()+"%'");
+			rs  = pstmt.executeQuery(); 
+			productList = new ArrayList<Product>();
+			while (rs.next()){
+				Product product = new Product();
+				product.setProductId(rs.getInt(1));
+				product.setName(rs.getString(2));
+				product.setMaker(rs.getString(3));
+				product.setPrice(rs.getInt(4));
+				product.setDiscount(rs.getInt(5));
+				product.setOrigin(rs.getString(6));
+				product.setThumbnailimg(rs.getString(7));
+				product.setDetailimg(rs.getString(8));
+				product.setFav(rs.getInt(9));
+				product.setCategory(rs.getString(10));
+				product.setMemo(rs.getString(11));
+				productList.add(product);
+			}
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return productList;
+	}
+	
 	public List<Product> selectListByFav(Connection conn) 
 			throws SQLException {
 		PreparedStatement pstmt = null;
