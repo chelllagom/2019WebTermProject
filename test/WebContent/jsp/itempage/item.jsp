@@ -64,7 +64,7 @@
   						<span class="number">${product.price}원</span> 
   					</strong>
   					<strong >
-  						<span style="margin-left: 10px;" class="sale">${product.discount}%</span>
+  						<span style="margin-left: 10px;" class="sale">${product.discount}% 할인 중</span>
   					</strong>
   				</div>
   				<div class="thumb_memo">

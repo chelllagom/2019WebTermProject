@@ -48,7 +48,8 @@
     <div class="header_menu">
     	<ul>
        	  <span class="header_span_menu">
-  			<li><a href="../itempage/item.jsp?title=화병">화병</a></li> <!-- ?title=화병 뒷부분에 DB에서 받을 값 이름도 같이 넘겨서 사진 받아주세여 -->
+       	  	<li><a href="../itempage/item.jsp?title=전체상품">전체상품</a></li>
+  			<li><a href="../itempage/item.jsp?title=화병">화병</a></li>
   			<li><a href="../itempage/item.jsp?title=조화">조화</a></li>
   			<li><a href="../itempage/item.jsp?title=바구니">바구니</a></li>
             <li><a href="../itempage/item.jsp?title=촛대">촛대</a></li>

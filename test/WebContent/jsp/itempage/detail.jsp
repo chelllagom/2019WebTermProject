@@ -4,6 +4,15 @@
 <%@ page import="my.dao.*,my.util.*,my.model.*,java.util.*,java.sql.*" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<script>
+function cart(){
+	var id = document.getElementById("productId").value; //상품아이디
+	var count = document.getElementById("amount").value; //상품 개수 담아서 보내기
+	var popupX = (window.screen.width / 2) - (378 / 2);
+	var popupY= (window.screen.height / 2) - (240 / 2);
+	window.open("cart_popup.jsp?id="+id+"&count="+count, "startpop", "width=378, height=240,scrollbars=no, resizable=no ,status=no ,left='+ popupX + ', top='+ popupY");
+}
+</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>인테리어소품 코제트</title>
@@ -136,6 +145,8 @@ totalPrice *= 10;
 						</td>
     			</tr>
 			</table>
+			<!-- 장바구니 팝업 위한 hidden input -->
+			<input type="hidden" id="productId" value="${product.productId}"/>
 			<hr></hr>
 			<br/>
 			
@@ -145,7 +156,7 @@ totalPrice *= 10;
 			
 			<div id="btn_group">
 				<a href="#"><button id="test_btn1">구매하기</button></a>
-				<a href="#"><button id="test_btn2">장바구니</button></a>
+				<a href="#" onclick="cart();"><button id="test_btn2">장바구니</button></a>
 			</div>
 
 			

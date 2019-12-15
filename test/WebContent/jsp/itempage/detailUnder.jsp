@@ -7,12 +7,10 @@
 <title>인테리어소품 코제트</title>
 <link href="../../css/detailUnder.css" rel="stylesheet" type="text/css" />
 <SCRIPT LANGUAGE="JavaScript">
-
 function openPop()
 {
 window.open("../board/write.jsp", "startpop", "top=0, left=0, width=470, height=300, scrollbars=no, resizable=no ,status=no ,toolbar=no");
 }
-
 </SCRIPT>
 </head>
 <body>
