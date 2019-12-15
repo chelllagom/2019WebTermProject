@@ -22,10 +22,10 @@
 			<a href="join.jsp" class="button02">주문 내역 조회</a>
 		</div>
 		<div class="button-area" style="margin-left: 20px;">
-				<a href="join.jsp" class="button01">회원 정보 수정</a>
+			<a href="join.jsp" class="button02">주문 내역 조회</a>
 		</div>
 		<div class="button-area" style="margin-left: 20px;">
-				<a href="join.jsp" class="button01">회원가입</a>
+			<a href="join.jsp" class="button02">주문 내역 조회</a>
 		</div>
 		<form name="loginInfo" action="session_Login.jsp" method="post" onsubmit="return checkValue()">
 		<div class="form-area">
