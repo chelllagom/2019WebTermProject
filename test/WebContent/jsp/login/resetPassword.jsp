@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- <%@ page import="my.model.*,my.dao.*,java.sql.*,java.util.*,my.util.*" %>  --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -127,13 +128,14 @@ alertEl.style.display = 'none';
 	request.setCharacterEncoding("utf-8");
 	String id = request.getParameter("id");
 %>
+<c:set var="memberId" value="<%=id %>"/>
 <div id="wrap">
 	<jsp:include page="../form/header.jsp" flush="true"></jsp:include>
 	
 	
 	<div id="reset_password_wrap">
 		<div class="container">
-		<form action="findPassword.jsp" method="post" name="form1">
+		<form action="resetPasswordResult.jsp?memberId=${memberId}" method="post" name="form1">
 		<p class="title">S E A R C H &nbsp;&nbsp; P A S S W O R D</p>
 		<br>
 		<p class="p">비밀번호 재설정</p>
@@ -143,7 +145,7 @@ alertEl.style.display = 'none';
 		 
         <tr>
         <th bgcolor="#eeeeee" scope="row">아이디</th>
-			<td><%= id %></td>
+			<td>${memberId}</td>
 		</tr>
         
         <tr>
@@ -152,7 +154,7 @@ alertEl.style.display = 'none';
           <span>
                <input type="password" name="password" id="password" class="input-text" placeholder="새 비밀번호" maxlength="20" onfocusout="validatePassword()"/>
     	  </span>      
-    	  <div id="password_alert" class="alert"> 공백없이 8~15자의 영문/숫자</div>
+    	  <div id="password_alert" class="alert"> 공백없이 5~15자의 영문/숫자</div>
          </td>
         </tr>
         <tr>

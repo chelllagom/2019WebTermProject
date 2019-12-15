@@ -18,13 +18,7 @@ window.open("../board/write.jsp", "startpop", "top=0, left=0, width=470, height=
 <body>
 
 <div id="under_wrap">	
-	<div id="img_wrap">
-		<img src="../../images/detail/vase_detail_full_sample.png"/>
-		<br></br>
-		<img style="margin-left: 280px;" src="../../images/detail/detail_info.PNG"/>
-		<br></br>
-		<img style="margin-left: 280px;" src="../../images/detail/detail_info1.PNG"/>
-	</div>
+
 	
 <br></br><br></br>	
 <div id=button_wrap>

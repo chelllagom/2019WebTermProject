@@ -46,6 +46,7 @@
 				    Connection conn = ConnectionProvider.getConnection();
 				    List<Product> list = null;
 				    ProductListView view = null;
+				    int num=0;
 				    try {
 				    	ProductDao dao = new ProductDao();
 				    	//list = dao.selectLike(conn, keyField, keyWord);
@@ -53,7 +54,6 @@
 				    }catch(SQLException e){}     
 			    %>
 			   <c:set var="list" value="<%=view.getProductList() %>"/>
-			   
 			    <table class="type02">
 			        <tr>
 			        <th>아이디</th><th>상품명</th><th>분류</th><th>가격</th><th>썸네일</th><th>상품 삭제</th>

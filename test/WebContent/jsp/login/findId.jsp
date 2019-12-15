@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ page import="my.model.*,my.dao.*,java.sql.*,java.util.*,my.util.*" %>  --%>
+<%@ page import="my.model.*,my.dao.*,java.sql.*,java.util.*,my.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -47,10 +47,13 @@ table.type03 td {
 	request.setCharacterEncoding("utf-8");
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
-	String id = request.getParameter("id");
-
+	Member member = new Member();
+	Connection conn = ConnectionProvider.getConnection();
+	try{
+		MemberDao dao = new MemberDao();
+		member = dao.selectByEmail(conn, email);
+	}catch(SQLException e){}
 %>
-
 			<table class="type03">
     			<tr>
         			<th scope="row">이름</th>
@@ -62,7 +65,7 @@ table.type03 td {
     			</tr>
     			<tr>
         			<th scope="row">아이디</th>
-        				<td><%= id %></td>
+        				<td><%=member.getMemberId() %></td>
     			</tr>
 			</table>
 		<br><br><br>

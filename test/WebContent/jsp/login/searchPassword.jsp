@@ -22,21 +22,21 @@
 				<tr>
 					<td>
 						<span>
-							<input type="text" id="name" class="input-text" placeholder="아이디를 입력해주세요" maxlength="20">
+							<input name="id" type="text" id="memberId" class="input-text" placeholder="아이디를 입력해주세요" maxlength="20">
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<span>
-							<input type="text" id="id" class="input-text" placeholder="이름을 입력해주세요" maxlength="20">
+							<input name="name" type="text" id="name" class="input-text" placeholder="이름을 입력해주세요" maxlength="20">
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<span>
-							<input type="text" id="email" class="input-text" placeholder="이메일을 입력해주세요" maxlength="20">
+							<input name="email" type="text" id="email" class="input-text" placeholder="이메일을 입력해주세요" maxlength="20">
 						</span>
 					</td>
 				</tr>

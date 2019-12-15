@@ -20,7 +20,7 @@
 %>
 <script>
 alert("${param.id}에 해당하는 상품이 삭제되었습니다.");
+document.location.href="productDelete.jsp";
 </script>
-<a href="productDelete.jsp"> 상품리스트보기</a>
 </body>
 </html>

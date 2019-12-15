@@ -61,6 +61,7 @@ totalPrice *= 10;
 <c:set var="productId" value="${product.productId}"/>
 <c:set var="price" value="${product.price}"/>
 <c:set var="discount" value="${product.discount}"/>
+<c:set var="shippingFee" value="3500"></c:set>
 <div id="wrap">
 <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
 
@@ -114,7 +115,7 @@ totalPrice *= 10;
     			</tr>
     			<tr>
         			<th scope="row">배송비</th>
-        				<td>3,500원 (50,000원 이상 구매 시 무료 / 제주, 도서지역 추가 3,000원)</td>
+        				<td>${shippingFee} (50,000원 이상 구매 시 무료 / 제주, 도서지역 추가 3,000원)</td>
     			</tr>
     			<tr>
         			<th scope="row">배송비 결제</th>
@@ -139,7 +140,7 @@ totalPrice *= 10;
 			<br/>
 			
 			<div style=" text-align: right; width: 560px; height: 50px;">
-				<span class="total_price">총 금액 <%=totalPrice %> 원</span>
+				<span class="total_price">총 금액 <%=totalPrice%> 원</span>
 			</div>
 			
 			<div id="btn_group">
@@ -191,18 +192,18 @@ totalPrice *= 10;
     		</tr>
     		<tr>
         		<th scope="row">제조사</th>
-        			<td>산기대 IT경영학과</td>
+        			<td>${product.maker }</td>
     		</tr>
     		<tr>
         		<th scope="row">모델명</th>
-        			<td>상품상세참조</td>
+        			<td>${product.name }</td>
     		</tr>
 		</table>
 		</a>
 		<table class="type02">
     		<tr>
         		<th scope="row">상품번호</th>
-        			<td>데베 상품번호</td>
+        			<td>${productId }</td>
     		</tr>
     		<tr>
         		<th scope="row">브랜드</th>
@@ -210,11 +211,13 @@ totalPrice *= 10;
     		</tr>
     		<tr>
         		<th scope="row">원산지</th>
-        			<td>경기도 시흥시 정왕동</td>
+        			<td>${product.origin }</td>
     		</tr>
 		</table>
 	</div>
-
+	<div id="img_wrap">
+		<img src="../../images/${product.detailimg}"/>
+	</div>
 
 <jsp:include page="detailUnder.jsp" flush="true"></jsp:include>
 </div>

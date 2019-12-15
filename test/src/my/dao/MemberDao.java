@@ -2,9 +2,11 @@ package my.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import my.model.Member;
+import my.model.MemberListView;
 import my.util.JdbcUtil;
 
 public class MemberDao {
@@ -86,6 +88,35 @@ public class MemberDao {
 		return member;
 	}
 	
+	public Member selectByEmail(Connection conn, String email) 
+			throws SQLException {
+		PreparedStatement pstmt=null; 
+		ResultSet rs = null;
+		Member member = null; 
+		try {
+			pstmt = conn.prepareStatement
+			("select * from member where email = ?");
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if (rs.next()){
+				member = new Member(); 
+				member.setMemberId(rs.getString(1));
+				member.setPassword(rs.getString(2));
+				member.setTel(rs.getString(3));
+				member.setName(rs.getString(4));
+				member.setEmail(rs.getString(5));
+				member.setAddress(rs.getString(6));
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+		}
+		return member;
+	}
+	
 	public List<Member> selectLike(Connection conn, String target, String keyword) 
 			throws SQLException {
 		PreparedStatement pstmt=null; 
@@ -145,6 +176,23 @@ public class MemberDao {
 		}
 	}
 	
+	public void updatePassword(Connection conn, String memberId, String password) 
+			throws SQLException {
+		PreparedStatement pstmt=null; 
+		try {
+			pstmt = conn.prepareStatement
+			("update member set password=? where memberId=?");
+			pstmt.setString(1, password);
+			pstmt.setString(2, memberId);
+			pstmt.executeUpdate(); 
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
 	public void deleteById(Connection conn, String memberId) 
 			throws SQLException {
 		PreparedStatement pstmt=null; 		
@@ -170,7 +218,7 @@ public class MemberDao {
 			rs.next();
 			return rs.getInt(1);
 		} finally {
-			JdbcUtil.close(conn);
+			//JdbcUtil.close(conn);
 			JdbcUtil.close(rs);
 		}
 	}
@@ -187,6 +235,65 @@ public class MemberDao {
 			memberList = new ArrayList<Member>();
 			while (rs.next()){
 				Member member = new Member(); 
+				member.setMemberId(rs.getString(1));
+				member.setPassword(rs.getString(2));
+				member.setTel(rs.getString(3));
+				member.setName(rs.getString(4));
+				member.setEmail(rs.getString(5));
+				member.setAddress(rs.getString(6));
+				memberList.add(member);
+			}
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return memberList;
+	}
+	
+	// final은 수정이 안된다는 키워드
+		// 페이지 당 5개
+		private static final int MOVIE_COUNT_PER_PAGE = 7;
+
+		public MemberListView getMemberList(Connection conn, int pageNumber)
+				throws SQLException {
+			int currentPageNumber = pageNumber;
+			int memberTotalCount = selectCount(conn);
+			List<Member> memberList = null;
+			int firstRow = 0;
+			int endRow = 0;
+			try {
+				if (memberTotalCount > 0) {
+					firstRow = (pageNumber - 1) * MOVIE_COUNT_PER_PAGE + 1;
+					endRow = firstRow + MOVIE_COUNT_PER_PAGE - 1;
+					memberList = selectListLimit(conn, firstRow, endRow);
+				} else {
+					currentPageNumber = 0;
+					memberList = Collections.emptyList();
+				}
+				
+			} catch (SQLException e) {} 
+			finally {
+				JdbcUtil.close(conn);
+			}
+			return new MemberListView(memberList,
+					memberTotalCount, currentPageNumber,
+					MOVIE_COUNT_PER_PAGE, firstRow, endRow);
+		}
+
+	public List<Member> selectListLimit(Connection conn, int firstRow, int endRow) 
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Member> memberList = null;
+		try {
+			pstmt = conn.prepareStatement("select * from member limit ?,?");
+			pstmt.setInt(1, firstRow-1);
+			pstmt.setInt(2, endRow);
+			rs  = pstmt.executeQuery(); 
+			memberList = new ArrayList<Member>();
+			while (rs.next()){
+				Member member = new Member();
 				member.setMemberId(rs.getString(1));
 				member.setPassword(rs.getString(2));
 				member.setTel(rs.getString(3));
