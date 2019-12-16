@@ -15,7 +15,7 @@
 <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
 
   <div class="title_wrap">
-  	<div class="title_wrap2" style="margin-left: 250px;">
+  	<div class="title_wrap2" style="margin-left: 200px;">
   		<h1 style="font-size : 3em; color: #555;" class="title">장바구니</h1>
   	</div>
   </div>
@@ -32,6 +32,7 @@
 		        	<th style="width: 100px;">할인금액</th>
 		        	<th style="width: 100px;">배송비</th>
 		        	<th style="width: 200px;">전체금액</th>
+		        	<th style="width: 80px;">삭제</th>
 		        </tr>      
 		        <tr>
 		            <td><input name="" type="checkbox" value="" checked ="on"/></td>
@@ -42,6 +43,7 @@
 		            <td class="memo">할인금액</td>     
 		   			<td>배송비</td>
 		   			<td style="font-size: 2em;"><strong>전체금액</strong></td>
+		   			<td><button style="width: 60px; height: 25px;" type="button">삭제</button></td>
 		 		</tr>
 			    <tr>  
 			        <td colspan="6"> <br/>
@@ -51,8 +53,33 @@
 						</div>
 						</form>
 				    </td>
-				    <td colspan="2">
-				    
+				    <td colspan="3">
+				    	<div class="payment_wrap">
+				    			<div class="payment1">
+			  						<strong>총 상품금액</strong>
+			  					</div>
+			  					<div class="payment2">
+			  						<strong>? 원</strong>
+			  					</div>
+			  					<div class="payment1">
+			  						<strong>배송비</strong>
+			  					</div>
+			  					<div class="payment2">
+			  						<strong>(+) ? 원</strong>
+			  					</div>
+			  					<div class="payment1">
+			  						<strong>총 할인금액</strong>
+			  					</div>
+			  					<div class="payment2">
+			  						<strong>(-) ? 원</strong>
+			  					</div>
+			  					<div class="total_payment1">
+			  						<strong>결제금액</strong>
+			  					</div>
+			  					<div class="total_payment2">
+			  						<strong>? 원</strong>
+			  					</div>				
+						</div>
 				    </td>  
 				 </tr>
 		    </table>  	

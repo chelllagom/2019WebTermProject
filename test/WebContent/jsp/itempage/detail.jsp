@@ -113,7 +113,7 @@ totalPrice *= 10;
 				
 				<div class="inner_box2">
 				<p style= "font-size : 1.8em; font-weight: bold; color: skyblue;">배송 상품안내</p>
-				<p style= "font-size : 1.3em; font-weight: bold; "> 지금 주문하면  11/18(월) 에 발송됩니다.</p>
+				<p style= "font-size : 1.3em; font-weight: bold; "> 지금 주문하시면  3일 뒤에 도착합니다.</p>
 				</div>
 			</div>
 			
@@ -155,7 +155,7 @@ totalPrice *= 10;
 			</div>
 			
 			<div id="btn_group">
-				<a href="#"><button id="test_btn1">구매하기</button></a>
+				<a href="../mypage/payment.jsp"><button id="test_btn1">구매하기</button></a>
 				<a href="#" onclick="cart();"><button id="test_btn2">장바구니</button></a>
 			</div>
 
