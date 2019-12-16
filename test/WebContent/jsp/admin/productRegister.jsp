@@ -74,9 +74,9 @@
                 </td>
               </tr>
               <tr>
-                <th><label for="memo">* 상품설명</label></th>
+                <th style="height: 50px;"><label for="memo">* 상품설명</label></th>
                 <td>
-                <textarea name="memo" cols="70" rows="10" id="memo"></textarea></td>
+                <textarea name="memo" cols="70" rows="3" id="memo"></textarea></td>
               </tr>
               <tr>
                 <td height="30" colspan="2" align="center" class="btnstyle">

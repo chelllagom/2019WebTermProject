@@ -46,11 +46,10 @@
 			    <tr>  
 			        <td colspan="6"> <br/>
 			            <div class="button-area" style="margin-left: 5px;">
-							<input type="submit" class="button01" value="주문하기"> 
+							<input type="submit" class="button01" value="주문하기">
+							<input type="button" onClick="location.href='../index/index.jsp'" class="button01" value="메인으로 이동">
 						</div>
-						<div class="button-area" style="margin-left: 20px;">
-							<a href="../index/index.jsp" class="button02">메인으로 이동</a>
-						</div>
+						</form>
 				    </td>
 				    <td colspan="2">
 				    
@@ -59,7 +58,7 @@
 		    </table>  	
 	     </div>
      	
-	</form>
+	
   </div>
   
 <jsp:include page="../form/footer.jsp" flush="true"></jsp:include>
