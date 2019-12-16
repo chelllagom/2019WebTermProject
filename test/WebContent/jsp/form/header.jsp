@@ -22,7 +22,7 @@
 					} else {
 			%>
 				<li><a href="../login/logout.jsp"><span class="loginBotton">로그아웃</span></a></li>
-				<li style="padding-left: 10px;"><a href=""><span class="loginBotton">마이페이지</span></a></li>
+				<li style="padding-left: 10px;"><a href="../mypage/mypage.jsp"><span class="loginBotton">마이페이지</span></a></li>
 			<%
 					}
 			%>
