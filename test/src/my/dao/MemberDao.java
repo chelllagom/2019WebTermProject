@@ -16,14 +16,18 @@ public class MemberDao {
 		PreparedStatement pstmt=null; 
 		try {
 			pstmt = conn.prepareStatement
-			("insert into member (memberId,password,tel,name,email,address)"
-					+ " values(?,?,?,?,?,?)");
+			("insert into member (memberId,password,name,email,tel1,tel2,tel3,address1,address2,address3)"
+					+ " values(?,?,?,?,?,?,?,?,?,?)");
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getPassword());
-			pstmt.setString(3, member.getTel());
-			pstmt.setString(4, member.getName());
-			pstmt.setString(5, member.getEmail());
-			pstmt.setString(6, member.getAddress());
+			pstmt.setString(3, member.getName());
+			pstmt.setString(4, member.getEmail());
+			pstmt.setString(5, member.getTel1());
+			pstmt.setString(6, member.getTel2());
+			pstmt.setString(7, member.getTel3());
+			pstmt.setString(8, member.getAddress1());
+			pstmt.setString(9, member.getAddress2());
+			pstmt.setString(10, member.getAddress3());
 			pstmt.executeUpdate(); 
 		} catch (SQLException e){
 			e.printStackTrace();
@@ -73,10 +77,14 @@ public class MemberDao {
 				member = new Member(); 
 				member.setMemberId(rs.getString(1));
 				member.setPassword(rs.getString(2));
-				member.setTel(rs.getString(3));
-				member.setName(rs.getString(4));
-				member.setEmail(rs.getString(5));
-				member.setAddress(rs.getString(6));
+				member.setName(rs.getString(3));
+				member.setEmail(rs.getString(4));
+				member.setTel1(rs.getString(5));
+				member.setTel2(rs.getString(6));
+				member.setTel3(rs.getString(7));
+				member.setAddress1(rs.getString(8));
+				member.setAddress2(rs.getString(9));
+				member.setAddress3(rs.getString(10));
 			}
 		} catch (SQLException e){
 			e.printStackTrace();
@@ -102,10 +110,14 @@ public class MemberDao {
 				member = new Member(); 
 				member.setMemberId(rs.getString(1));
 				member.setPassword(rs.getString(2));
-				member.setTel(rs.getString(3));
-				member.setName(rs.getString(4));
-				member.setEmail(rs.getString(5));
-				member.setAddress(rs.getString(6));
+				member.setName(rs.getString(3));
+				member.setEmail(rs.getString(4));
+				member.setTel1(rs.getString(5));
+				member.setTel2(rs.getString(6));
+				member.setTel3(rs.getString(7));
+				member.setAddress1(rs.getString(8));
+				member.setAddress2(rs.getString(9));
+				member.setAddress3(rs.getString(10));
 			}
 		} catch (SQLException e){
 			e.printStackTrace();
@@ -138,10 +150,14 @@ public class MemberDao {
 				member = new Member(); 
 				member.setMemberId(rs.getString(1));
 				member.setPassword(rs.getString(2));
-				member.setTel(rs.getString(3));
-				member.setName(rs.getString(4));
-				member.setEmail(rs.getString(5));
-				member.setAddress(rs.getString(6));
+				member.setName(rs.getString(3));
+				member.setEmail(rs.getString(4));
+				member.setTel1(rs.getString(5));
+				member.setTel2(rs.getString(6));
+				member.setTel3(rs.getString(7));
+				member.setAddress1(rs.getString(8));
+				member.setAddress2(rs.getString(9));
+				member.setAddress3(rs.getString(10));
 				members.add(member);
 			}
 		} catch (SQLException e){
@@ -159,14 +175,18 @@ public class MemberDao {
 		PreparedStatement pstmt=null; 
 		try {
 			pstmt = conn.prepareStatement
-			("update member set password=?,tel=?,name=?,email=?,address=? "
+			("update member set password=?,name=?,email=?,tel1=?,tel2=?,tel3=?,address1=?,address2=?,address3=? "
 					+ "   where memberId=?");
 			pstmt.setString(1, member.getPassword());
-			pstmt.setString(2, member.getTel());
-			pstmt.setString(3, member.getName());
-			pstmt.setString(4, member.getEmail());
-			pstmt.setString(5, member.getAddress());
-			pstmt.setString(6, member.getMemberId());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getTel1());
+			pstmt.setString(5, member.getTel2());
+			pstmt.setString(6, member.getTel3());
+			pstmt.setString(7, member.getAddress1());
+			pstmt.setString(8, member.getAddress2());
+			pstmt.setString(9, member.getAddress3());
+			pstmt.setString(10, member.getMemberId());
 			pstmt.executeUpdate(); 
 		} catch (SQLException e){
 			e.printStackTrace();
@@ -237,10 +257,14 @@ public class MemberDao {
 				Member member = new Member(); 
 				member.setMemberId(rs.getString(1));
 				member.setPassword(rs.getString(2));
-				member.setTel(rs.getString(3));
-				member.setName(rs.getString(4));
-				member.setEmail(rs.getString(5));
-				member.setAddress(rs.getString(6));
+				member.setName(rs.getString(3));
+				member.setEmail(rs.getString(4));
+				member.setTel1(rs.getString(5));
+				member.setTel2(rs.getString(6));
+				member.setTel3(rs.getString(7));
+				member.setAddress1(rs.getString(8));
+				member.setAddress2(rs.getString(9));
+				member.setAddress3(rs.getString(10));
 				memberList.add(member);
 			}
 		} finally {
@@ -296,10 +320,14 @@ public class MemberDao {
 				Member member = new Member();
 				member.setMemberId(rs.getString(1));
 				member.setPassword(rs.getString(2));
-				member.setTel(rs.getString(3));
-				member.setName(rs.getString(4));
-				member.setEmail(rs.getString(5));
-				member.setAddress(rs.getString(6));
+				member.setName(rs.getString(3));
+				member.setEmail(rs.getString(4));
+				member.setTel1(rs.getString(5));
+				member.setTel2(rs.getString(6));
+				member.setTel3(rs.getString(7));
+				member.setAddress1(rs.getString(8));
+				member.setAddress2(rs.getString(9));
+				member.setAddress3(rs.getString(10));
 				memberList.add(member);
 			}
 		} finally {

@@ -12,11 +12,12 @@ public class Product {
 	private int fav;
 	private String category;
 	private String memo;
+	private int amount;
 	
 	public Product() {}
 
 	public Product(String name, String maker, int price, int discount, String origin,
-			String thumbnailimg, String detailimg, int fav, String category, String memo) {
+			String thumbnailimg, String detailimg, int fav, String category, String memo, int amount) {
 		super();
 		this.name = name;
 		this.maker = maker;
@@ -28,6 +29,7 @@ public class Product {
 		this.fav = fav;
 		this.category = category;
 		this.memo = memo;
+		this.amount = amount;
 	}
 
 	public int getProductId() {
@@ -116,6 +118,14 @@ public class Product {
 
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
 	};
 	
 	

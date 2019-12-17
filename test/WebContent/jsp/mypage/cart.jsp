@@ -11,6 +11,31 @@
 <link href="../../css/cart.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<%
+	Integer productCount = (Integer)session.getAttribute("productCount");
+	List<Product> products = new ArrayList<Product>();
+	Cart cart = null;
+	Connection conn = ConnectionProvider.getConnection();
+	ProductDao dao = new ProductDao();
+	int totalPrice = 0;
+	int totalDiscount = 0;
+	int shippingFee = 3500;
+	int discount = 0;
+	for(int i=1; i<=productCount.intValue(); i++) {
+		cart = (Cart)session.getAttribute("product"+i);
+		int productId = cart.getProductId();
+		int amount = cart.getAmount();
+		Product product = new Product();
+		product = dao.selectById(conn, productId);
+		discount = ((int)(product.getPrice() * 0.01 * product.getDiscount()))/10 * 10;
+		product.setDiscount(discount);
+		product.setAmount(amount);
+		products.add(product);
+		totalPrice += product.getPrice();
+		totalDiscount += discount;
+	}
+%>
+<c:set var="shippingFee" value="3500"/>
 <div id="wrap">
 <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
 
@@ -30,21 +55,21 @@
 		        	<th style="width: 40px;">수량</th>
 		        	<th style="width: 100px;">상품금액</th>
 		        	<th style="width: 100px;">할인금액</th>
-		        	<th style="width: 100px;">배송비</th>
 		        	<th style="width: 200px;">전체금액</th>
 		        	<th style="width: 80px;">삭제</th>
 		        </tr>      
-		        <tr>
-		            <td><input name="" type="checkbox" value="" checked ="on"/></td>
-		            <td style="width: 150px; height: 150px;"><img src="" alt="미니이미지"/></td>
-		            <td><div class="name">상품제목</div><div class="memo">상품메모</div></td>
-		            <td><strong>수량</strong></td>
-		            <td>상품금액</td>
-		            <td class="memo">할인금액</td>     
-		   			<td>배송비</td>
-		   			<td style="font-size: 2em;"><strong>전체금액</strong></td>
-		   			<td><button style="width: 60px; height: 25px;" type="button">삭제</button></td>
-		 		</tr>
+		       <c:forEach var="product" items="<%=products %>">
+		        	<tr>
+		            	<td><input name="" type="checkbox" value="" checked ="on"/></td>
+		            	<td style="width: 150px; height: 150px;"><img src="/test/images/${product.thumbnailimg}" alt="미니이미지"/></td>
+		            	<td><div class="name">${product.name}</div><div class="memo">${product.memo}</div></td>
+		            	<td><strong>${product.amount}개</strong></td>
+		            	<td>${product.price}원</td>
+		            	<td class="memo">-${product.discount}원</td>     
+		   				<td style="font-size: 2em;"><strong>총 ${product.price - product.discount}원</strong></td>
+		   				<td><button style="width: 60px; height: 25px;" type="button">삭제</button></td>
+		 			</tr>
+		 		</c:forEach>
 			    <tr>  
 			        <td colspan="6"> <br/>
 			            <div class="button-area" style="margin-left: 5px;">
@@ -59,26 +84,26 @@
 			  						<strong>총 상품금액</strong>
 			  					</div>
 			  					<div class="payment2">
-			  						<strong>? 원</strong>
+			  						<strong><%=totalPrice %> 원</strong>
 			  					</div>
 			  					<div class="payment1">
 			  						<strong>배송비</strong>
 			  					</div>
 			  					<div class="payment2">
-			  						<strong>(+) ? 원</strong>
+			  						<strong>(+) ${shippingFee}원</strong>
 			  					</div>
 			  					<div class="payment1">
 			  						<strong>총 할인금액</strong>
 			  					</div>
 			  					<div class="payment2">
-			  						<strong>(-) ? 원</strong>
+			  						<strong>(-) <%=totalDiscount %> 원</strong>
 			  					</div>
 			  					<div class="total_payment1">
 			  						<strong>결제금액</strong>
 			  					</div>
 			  					<div class="total_payment2">
-			  						<strong>? 원</strong>
-			  					</div>				
+			  						<strong><%=totalPrice - totalDiscount + shippingFee%> 원</strong>
+			  					</div>
 						</div>
 				    </td>  
 				 </tr>

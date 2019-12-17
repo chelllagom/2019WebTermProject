@@ -14,21 +14,19 @@
 	String userId = request.getParameter("userId");
 	String password = request.getParameter("password");
 	String userName = request.getParameter("userName");
-	String phoneNum1 = request.getParameter("phoneNum1");
-	String phoneNum2 = request.getParameter("phoneNum2");
-	String phoneNum3 = request.getParameter("phoneNum3");
-	String tel = phoneNum1 + phoneNum2 + phoneNum3;
+	String tel1 = request.getParameter("phoneNum1");
+	String tel2 = request.getParameter("phoneNum2");
+	String tel3 = request.getParameter("phoneNum3");
 	String email1 = request.getParameter("email1");
 	String email2 = request.getParameter("email2");
 	String email = email1 + email2;
-	String sample6_postcode = request.getParameter("sample6_postcode");
-	String sample6_address = request.getParameter("sample6_address");
-	String daddress = request.getParameter("daddress");
-	String address = sample6_postcode + " " + sample6_address + " " + daddress;
+	String address1 = request.getParameter("sample6_postcode");
+	String address2 = request.getParameter("sample6_address");
+	String address3 = request.getParameter("daddress");
 	Connection conn = ConnectionProvider.getConnection();
 	try{
 		MemberDao dao = new MemberDao();
-		Member member = new Member(userId, password, tel, userName, email, address);
+		Member member = new Member(userId, password, userName, email, tel1, tel2, tel3, address1, address2, address3);
 		dao.insert(conn, member);
 	}catch(SQLException e){}
 %>

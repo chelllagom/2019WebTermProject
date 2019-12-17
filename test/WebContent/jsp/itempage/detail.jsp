@@ -4,15 +4,6 @@
 <%@ page import="my.dao.*,my.util.*,my.model.*,java.util.*,java.sql.*" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<script>
-function cart(){
-	var id = document.getElementById("productId").value; //상품아이디
-	var count = document.getElementById("amount").value; //상품 개수 담아서 보내기
-	var popupX = (window.screen.width / 2) - (378 / 2);
-	var popupY= (window.screen.height / 2) - (240 / 2);
-	window.open("cart_popup.jsp?id="+id+"&count="+count, "startpop", "width=378, height=240,scrollbars=no, resizable=no ,status=no ,left='+ popupX + ', top='+ popupY");
-}
-</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>인테리어소품 코제트</title>
@@ -51,6 +42,7 @@ function MM_swapImage() { //v3.0
 							  ,'../../images/bestseller_14.PNG'
 							  )">
 <%
+String memberId = (String)session.getAttribute("LOGIN");
 int productId = Integer.parseInt(request.getParameter("productId"));
 Product product = null;
 Connection conn = ConnectionProvider.getConnection();
@@ -70,7 +62,7 @@ totalPrice *= 10;
 <c:set var="productId" value="${product.productId}"/>
 <c:set var="price" value="${product.price}"/>
 <c:set var="discount" value="${product.discount}"/>
-<c:set var="shippingFee" value="3500"></c:set>
+<c:set var="shippingFee" value="3500"/>
 <div id="wrap">
 <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
 
@@ -146,7 +138,8 @@ totalPrice *= 10;
     			</tr>
 			</table>
 			<!-- 장바구니 팝업 위한 hidden input -->
-			<input type="hidden" id="productId" value="${product.productId}"/>
+			<input type="hidden" id="productId" value="${productId}"/>
+			<input type="hidden" id="memberId" value=<%=memberId%>/>
 			<hr></hr>
 			<br/>
 			
@@ -155,8 +148,8 @@ totalPrice *= 10;
 			</div>
 			
 			<div id="btn_group">
-				<a href="../mypage/payment.jsp"><button id="test_btn1">구매하기</button></a>
-				<a href="#" onclick="cart();"><button id="test_btn2">장바구니</button></a>
+				<button id="test_btn1" onclick="purchase();">구매하기</button>
+				<button id="test_btn2" onclick="cart();">장바구니</button>
 			</div>
 
 			
@@ -235,6 +228,34 @@ totalPrice *= 10;
 
 
 <jsp:include page="../form/footer.jsp" flush="true"></jsp:include>
+<script>
+function cart(){
+	var id = document.getElementById("memberId").value.trim();
+	if( id == "")
+	{
+		alert("로그인이 필요합니다.");
+		location.href = "../login/login.jsp";
+	}
+		var productId = document.getElementById("productId").value.trim();
+		var amount = document.getElementById("amount").value.trim(); //상품 개수 담아서 보내기
+		var popupX = (window.screen.width/2) - (378 / 2);
+		var popupY= (window.screen.height/2) - (240 / 2);
+		window.open("cart_popup.jsp?productId=" + productId + "&amount="+amount, "startpop", "width=378, height=240,scrollbars=no, resizable=no ,status=no ,left='+ popupX + ', top='+ popupY");
+	
+}
+function purchase(){
+	var id = document.getElementById("memberId").value.trim();
+	if( id == "null/")
+	{
+		alert("로그인이 필요합니다.");
+		location.href = "../login/login.jsp";
+	}
+		var productId = document.getElementById("productId").value.trim();
+		var amount = document.getElementById("amount").value.trim(); //상품 개수 담아서 보내기
+		location.href="putcart.jsp?productId=" + productId + "&amount="+amount;
+	
+}
+</script>
 </div>
 </body>
 </html>
