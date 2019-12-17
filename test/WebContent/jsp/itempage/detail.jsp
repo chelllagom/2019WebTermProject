@@ -219,7 +219,9 @@ totalPrice *= 10;
 		<img src="../../images/${product.detailimg}"/>
 	</div>
 
-<jsp:include page="detailUnder.jsp" flush="true"></jsp:include>
+<jsp:include page="detailUnder.jsp" flush="true">
+<jsp:param value="${productId}" name="productId"/>
+</jsp:include>
 </div>
 
 

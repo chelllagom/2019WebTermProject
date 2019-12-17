@@ -266,7 +266,7 @@ table.type02 td {
 .tbl-ex{
 	margin-left: 350px;
 	width: 1184px;
-	height: 200px;
+	height: auto;
 }
 .tbl-ex, .tbl-ex th , .tbl-ex td{
     border:1px solid gray;

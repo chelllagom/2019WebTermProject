@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ page import="my.dao.*,my.util.*,my.model.*,java.util.*,java.sql.*" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,39 +15,20 @@
 
 </head>
 <body>
-<%-- <%
-	request.setCharacterEncoding("euc-kr"); //받아오는 값들을 한글로 인코딩합니다.
-
-	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+<%
+	request.setCharacterEncoding("utf-8");
+	String memberId = (String)session.getAttribute("LOGIN");
+	int productId = Integer.parseInt(request.getParameter("productId"));
+	String title = request.getParameter("title");
+	String contents = request.getParameter("contents");
 	
-	String url = "jdbc:odbc:board2";
-	String id = "";
-	String pass = "";
-
-
-	String name = request.getParameter("name"); //write.jsp에서 name에 입력한 데이터값
-	String password = request.getParameter("password");//write.jsp에서 password에 입력한 데이터값
-	String title = request.getParameter("title"); //write.jsp에서 title에 입력한 데이터값
-	String memo = request.getParameter("memo"); //write.jsp에서 memo에 입력한 데이터값
+	Connection conn = ConnectionProvider.getConnection();
 	
-	try {	
-		Connection conn = DriverManager.getConnection(url,id,pass);
-		
-		String sql = "INSERT INTO board1(USERNAME,PASSWORD,TITLE,MEMO) VALUES(?,?,?,?)";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
-		pstmt.setString(1, name);
-		pstmt.setString(2, password);
-		pstmt.setString(3, title);
-		pstmt.setString(4, memo);
-		
-		pstmt.execute();
-		pstmt.close();
-		
-		conn.close();
-} catch(SQLException e) {
-	out.println( e.toString() );
-	} 
-%> --%>
+	try{
+		QnaDao dao = new QnaDao();
+		Qna qna = new Qna(memberId, productId, title, contents, "미해결", new java.util.Date());
+		dao.insert(conn, qna);
+	}catch(SQLException e){}
+%>
 </body>
 </html>
