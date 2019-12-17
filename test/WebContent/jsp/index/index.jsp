@@ -9,19 +9,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script>
 $(document).ready(function () {
     $('.bxslider').bxSlider({
         auto: true, // 자동으로 애니메이션 시작
         speed: 500,  // 애니메이션 속도
         pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
-        mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
-        autoControls: true, // 시작 및 중지버튼 보여짐
         pager: true, // 페이지 표시 보여짐
-        captions: true, // 이미지 위에 텍스트를 넣을 수 있음
     });
 });
 </script>
+<style>
+.bx-wrapper{ position:relative;}
+.bx-controls-direction {font-size:100px;}
+.bx-controls-direction a { position:absolute; display: block; width: 100px; height: 110px; overflow: hidden; color: #5a5a5a;}
+.bx-controls-direction .bx-prev {}
+.bx-controls-direction .bx-next {}
+.bx-controls-direction .bx-prev:before { content:"\e93d"; font-family: 'xeicon';}
+.bx-controls-direction .bx-next:before { content:"\e940"; font-family: 'xeicon';}
+</style>
 <script type="text/javascript">
 function MM_preloadImages() { //v3.0
   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
@@ -52,16 +59,14 @@ function MM_swapImage() { //v3.0
 
 <div id="wrap">
   <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
-  
-	  <ul class="bxslider"> 
-	  	<li>
+  <div class="bxslider">
+	  <div>
 	  		<img src="../../images/mainimg.PNG" onerror="javascript:this.src='../../images/mainimg.png'"/>
-	  	</li>
-	  	<li>
+	  </div>
+	  <div>
 	  		<img src="../../images/mainimg1.PNG" onerror="javascript:this.src='../../images/mainimg1.png'"/>
-	  	</li>
-	  </ul>
-  
+	  </div>
+  </div>
   <div class="ranking_logo">
   	<div style="display: inline-block;"><h1 style="font-size : 3em; color: #555;">고객님이 좋아하실 만한 상품</h1></div>
   </div>
