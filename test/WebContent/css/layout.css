@@ -154,6 +154,7 @@ body, input, textarea, select, button, table {
 }
 .bestseller_miniimg{
 	width: 1900px;
+	height: 555px;
 	float:left;
 	text-align: center;
 }
@@ -221,3 +222,16 @@ body, input, textarea, select, button, table {
 	margin-left: 90px;
 	float: left;
 }
+.bestseller_miniimg{text-align: center; width: 100%;}
+.inner_slider{display: inline-block;}
+.bx-wrapper{ position:relative;}
+.bx-controls-direction {font-size:100px;}
+.bx-controls-direction a { position:absolute; top: 50%; display: block; width: 100px; height: 110px; overflow: hidden; transform:translateY(-50%); color: #5a5a5a;}
+.bx-controls-direction .bx-prev {left: 0;}
+.bx-controls-direction .bx-next {right: 0;}
+.bx-controls-direction .bx-prev:before { content:"\e93d"; font-family: 'xeicon';}
+.bx-controls-direction .bx-next:before { content:"\e940"; font-family: 'xeicon';}
+.bx-pager{ position:absolute; left: 0; bottom: -92px; width: 100%; text-align:center;}
+.bx-pager div{display: inline-block; padding: 0 5px;}
+.bx-pager div a {display:block; font-size: 0; color:transparent; width:24px; height: 3px; background:#999;}
+.bx-pager div a.active{background: #000;}
