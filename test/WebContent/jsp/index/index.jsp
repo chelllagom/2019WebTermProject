@@ -56,14 +56,15 @@ function MM_swapImage() { //v3.0
 	List<Product> bestProducts = null;
 	try{
 		ProductDao dao = new ProductDao();
-		bestProducts = dao.selectListByFavLimit(conn, 4);
+		bestProducts = dao.selectListByFav(conn);
 	}catch(SQLException e){}
 	
 	List<Product> newProducts = null;
 	try{
 		ProductDao dao = new ProductDao();
-		newProducts = dao.selectListByFavLimit(conn, 8);
+		newProducts = dao.selectListByFav(conn);
 	}catch(SQLException e){}
+	JdbcUtil.close(conn);
 %>
 <div id="wrap">
   <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
@@ -83,7 +84,7 @@ function MM_swapImage() { //v3.0
   
   
 	<div class="item_wrap">	
-  		<c:forEach var="product" items="<%=bestProducts%>">
+  		<c:forEach var="product" items="<%=bestProducts%>" begin="0" end="3">
   		<div class="item">
 			<a href="../itempage/detail.jsp?productId=${product.productId}">	
  					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
@@ -110,7 +111,7 @@ function MM_swapImage() { //v3.0
   	<div style="display: inline-block;"><h1 style="font-size : 3em; color: #555;">새로나온 신상품</h1></div>
   </div>
 	<div class="item_wrap">
-	<c:forEach var="product" items="<%=newProducts%>">
+	<c:forEach var="product" items="<%=newProducts%>" begin="0" end="7">
 		<div class="item">
 			<a href="../itempage/detail.jsp?productId=${product.productId}">	
  					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
@@ -153,8 +154,8 @@ function MM_swapImage() { //v3.0
       <div class="bestseller_img">
       <img src="../../images/bestseller_11.PNG" name="bestseller_event" width="1602" height="552" usemap="#bestseller_eventMap" id="bestseller_event" onerror="javascript:this.src='../../images/bestseller_11.png'" border="0" />
       <map name="bestseller_eventMap" id="bestseller_eventMap">
-        <area shape="rect" coords="-1,-1,781,549" href="../itempage/detail.jsp?productId=${product.productId}" />
-        <area shape="rect" coords="822,1,1600,549" href="../itempage/detail.jsp?productId=${product.productId}" />
+        <area shape="rect" coords="-1,-1,781,549" href="../itempage/detail.jsp?productId=26" />
+        <area shape="rect" coords="822,1,1600,549" href="../itempage/detail.jsp?productId=27" />
       </map>
       </div>
     </div>

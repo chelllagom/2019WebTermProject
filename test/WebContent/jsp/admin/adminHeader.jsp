@@ -60,13 +60,11 @@
 			            <li class="menu"><a>판매 관리</a>
 			            	<ul class="hide">
 			                    <li><a href="orderCheck.jsp">주문 조회</a></li>
-			                    <li><a href="return.jsp">반품 관리</a></li>
 			                </ul>
 			            </li>
 			            <li class="menu"><a>회원 관리</a>
 			                <ul class="hide">
 			                    <li><a href="memberCheck.jsp">회원 조회</a></li>
-			                    <li><a href="memberDelete.jsp">회원 삭제</a></li>
 			                </ul>
 			            </li>
 			        </ul>

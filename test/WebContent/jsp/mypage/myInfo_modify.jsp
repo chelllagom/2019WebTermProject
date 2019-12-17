@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ page import="my.dao.*,my.util.*,my.model.*,java.util.*,java.sql.*" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -330,8 +332,16 @@ function validatePassword2()
 </head>
 <body>
 <%
-        request.setCharacterEncoding("UTF-8");
+    request.setCharacterEncoding("UTF-8");
+	String memberId = (String)session.getAttribute("LOGIN");
+	Connection conn = ConnectionProvider.getConnection();
+	Member member = null;
+	try{
+		MemberDao dao = new MemberDao();
+		member = dao.selectById(conn, memberId);
+	}catch(SQLException e){}
 %>
+<c:set var="member" value="<%=member %>"/>
 <div id="wrap">
 	<div class="header_bar">
 	    <div class="header_logmenu">
@@ -383,14 +393,14 @@ function validatePassword2()
 	</div>
 
 	<div class="right_box1">
-	<form action="mypage.jsp" method="post" name="form1">
+	<form action="myinfo_modify_ok.jsp" method="post" name="form1">
 			<table class="type03" border="1" cellpadding="3" cellspacing="0">
 		 
         <tr>
         <th bgcolor="#eeeeee" scope="row">아이디<span class="list"> *</span></th>
 			<td>
 				<span>
-					<input type="text" id="userId" name="userId" class="input-text" placeholder="아이디" maxlength="20" onfocusout="validateUserId()"/>
+					<input type="text" id="userId" name="userId" class="input-text" value="${member.memberId}" maxlength="20" onfocusout="validateUserId()"/>
 				</span>
 			</td>
 		</tr>
@@ -398,7 +408,7 @@ function validatePassword2()
           <th bgcolor="#eeeeee" scope="row">현재 비밀번호</th>
           <td>
           <span>
-               <input type="password" name="password" id="password" class="input-text" placeholder="비밀번호" maxlength="20" onfocusout="validatePassword()"/>
+               <input type="password" name="password" id="password" class="input-text" value="${member.password}" maxlength="20" onfocusout="validatePassword()"/>
     	  </span>      
     	  <div id="password_alert" class="alert"> 공백없이 8~15자의 영문/숫자를 조합하여 입력해주세요.</div>
          </td>
@@ -407,7 +417,7 @@ function validatePassword2()
           <th bgcolor="#eeeeee" scope="row">새 비밀번호</th>
           <td>
           <span>
-               <input type="password" name="password" id="password" class="input-text" placeholder="비밀번호" maxlength="20" onfocusout="validatePassword()"/>
+               <input type="password" name="password" id="password" class="input-text" value="${member.password}" maxlength="20" onfocusout="validatePassword()"/>
     	  </span>      
     	  <div id="password_alert" class="alert"> 공백없이 8~15자의 영문/숫자를 조합하여 입력해주세요.</div>
          </td>
@@ -416,7 +426,7 @@ function validatePassword2()
           <th bgcolor="#eeeeee" scope="row">새 비밀번호 확인 </th>
           <td>
             <span>
-            <input type="password" name="password2" id="password2" class="input-text" placeholder="비밀번호" maxlength="20" onfocusout="validatePassword2()" />
+            <input type="password" name="password2" id="password2" class="input-text" value="${member.password}" maxlength="20" onfocusout="validatePassword2()" />
             </span>      
               <div id="password2_alert" class="alert"> 비밀번호 확인을 위해 다시 한 번 입력해주세요.</div>
           </td>
@@ -430,7 +440,7 @@ function validatePassword2()
           <th bgcolor="#eeeeee" scope="row">이름 <span class="list">*</span></th>
           <td>
           	<span>
-            	<input type="text" name="userName" id="userName" class="input-text" placeholder="이름" maxlength="20" onfocusout="validateUserName()"/>
+            	<input type="text" name="userName" id="userName" class="input-text" value="${member.name }" maxlength="20" onfocusout="validateUserName()"/>
            	</span>
         </td>
         </tr>
@@ -438,16 +448,16 @@ function validatePassword2()
         <tr>
           <th width="122" height="46" bgcolor="#eeeeee" scope="row">휴대폰 번호</th>
           <td width="560">
-              <input type="number" name="phoneNum1" id="phoneNum1" class="input-text" placeholder="010" maxlength="3" onfocusout="validatePhoneNum1()"/>
+              <input type="number" name="phoneNum1" id="phoneNum1" class="input-text" value="${member.tel1 }" maxlength="3" onfocusout="validatePhoneNum1()"/>
             -
             
             <span>
-            <input type="number" name="phoneNum2" id="phoneNum2" class="input-text" maxlength="4" onfocusout="validatePhoneNum2()" />
+            <input type="number" name="phoneNum2" id="phoneNum2" class="input-text" value="${member.tel2 }" maxlength="4" onfocusout="validatePhoneNum2()" />
             </span>
             
             -
 			 <span>
-            <input type="number" name="phoneNum3" id="phoneNum3" class="input-text" maxlength="4" onfocusout="validatePhoneNum3()" />		
+            <input type="number" name="phoneNum3" id="phoneNum3" class="input-text" value="${member.tel3 }" maxlength="4" onfocusout="validatePhoneNum3()" />		
 			</span>
 			
 			<div id="phoneNum2_alert" class="alert"></div>
@@ -472,10 +482,10 @@ function validatePassword2()
           <th bgcolor="#eeeeee" scope="row">주소*</th>
           <td>
             <p>
-			  <input type="text" name="sample6_postcode" id="sample6_postcode" placeholder="우편번호"/>
+			  <input type="text" name="sample6_postcode" id="sample6_postcode" value="${member.address1 }"/>
 			  <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"/><br></br>
-			  <input type="text" name="sample6_address" id="sample6_address" placeholder="주소"/>
-              <input type="text" name="daddress" id="daddress" />
+			  <input type="text" name="sample6_address" id="sample6_address" value="${member.address2 }"/>
+              <input type="text" name="daddress" id="daddress" value="${member.address3 }" />
             </p>
           </td>
           </tr>

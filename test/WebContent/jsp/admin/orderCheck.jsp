@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="my.dao.*,my.model.*,java.sql.*,java.util.*,my.util.*" %>    
- --%><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="my.dao.*,my.model.*,java.sql.*,java.util.*,my.util.*" %>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -43,30 +43,31 @@
 				    request.setCharacterEncoding("UTF-8");
 				    String keyField = request.getParameter("keyField");
 				    String keyWord = request.getParameter("keyWord");    
-				    /* Connection conn = ConnectionProvider.getConnection();
-				    List<Movie> list = null;
-				    MovieListView view = null;
+				    Connection conn = ConnectionProvider.getConnection();
+				    List<Purchase> list = null;
+				    PurchaseListView view = null;
+				    int num = 0;
 				    try {
-				    	MovieDao dao = new MovieDao();
-				    	//list = dao.selectLike(conn, keyField, keyWord);
-				    	view = dao.getMovieList(conn, pageNumber);
-				    }catch(SQLException e){} */       
+				    	PurchaseDao dao = new PurchaseDao();
+				    	view = dao.getPurchaseList(conn, pageNumber);
+				    }catch(SQLException e){}     
 			    %>
-			   <c:set var="list" value="<%-- <%=view.getMovieList() %> --%>"/>
+			   <c:set var="list" value="<%=view.getPurchaseList() %>"/>
 			   
    
 			    <table class="type02">
 			        <tr>
-			        <th>아이디</th><th>타이틀</th><th>제작사</th><th>내용</th><th>포스터</th><th>배송 완료</th>
+			        <th>분류번호</th><th>구매자</th><th>상품이름</th><th>수량</th><th>주문일자</th><th>처리상태</th><th>배송 완료</th>
 			        </tr>
-			    <c:forEach var="movie" items="${list}">       
+			    <c:forEach var="purchase" items="${list}">       
 			        <tr>
-			            <td>${movie.movieId}</td>
-			            <td>${movie.title}</td>
-			            <td>${movie.maker}</td>
-			            <td>${movie.memo}</td>
-			            <td><img src="/1111/movies/${movie.poster}" width="30" height="40"></td>     
-			   			<td><input type="button" value="배송 완료" onclick="idDelete('${movie.movieId}');"></td>
+			            <td>${purchase.purchaseId}</td>
+			            <td>${purchase.memberId}</td>
+			            <td>${purchase.name}</td>
+			            <td>${purchase.amount}</td>
+			            <td>${purchase.pdate}</td>   
+			            <td>${purchase.progress}</td>   
+			   			<td><a href="shipping_ok.jsp?purchaseId=${purchase.purchaseId}"><input type="button" value="배송 완료"></a></td>
 			 		</tr>              
 			    </c:forEach>
      

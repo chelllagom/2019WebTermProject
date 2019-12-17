@@ -51,7 +51,6 @@
 				    	MemberDao dao = new MemberDao();
 				    	//list = dao.selectLike(conn, keyField, keyWord);
 				    	view = dao.getMemberList(conn, pageNumber);
-				    	list = view.getMemberList();
 				    }catch(SQLException e){}     
 			    %>
 			   <c:set var="list" value="<%=view.getMemberList() %>"/>
@@ -63,9 +62,9 @@
 			        <tr>
 			            <td>${member.memberId}</td>
 			            <td>${member.name}</td>
-			            <td>${member.tel}</td>
+			            <td>${member.tel1} ${member.tel2} ${member.tel3}</td>
 			            <td>${member.email}</td>
-			            <td>${member.address}</td>  
+			            <td>${member.address1} ${member.address2} ${member.address3}</td>  
 			   			<td><input type="button" value="삭제" onclick="idDelete('${member.memberId}');"></td>
 			 		</tr>              
 			    </c:forEach>

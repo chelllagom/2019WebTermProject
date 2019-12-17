@@ -2,11 +2,12 @@ package my.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import my.model.Purchase;
 import my.util.JdbcUtil;
-
+import my.model.PurchaseListView;;
 public class PurchaseDao {
 	
 	public void insert(Connection conn, Purchase purchase) 
@@ -14,13 +15,15 @@ public class PurchaseDao {
 		PreparedStatement pstmt=null; 
 		try {
 			pstmt = conn.prepareStatement
-			("insert into purchase (productId,price,amount,memberId,pdate)"
-					+ " values(?,?,?,?,?)");
+			("insert into purchase (productId,price,memberId,pdate,amount,name,progress)"
+					+ " values(?,?,?,?,?,?,?)");
 			pstmt.setInt(1, purchase.getProductId());
 			pstmt.setInt(2, purchase.getPrice());
-			pstmt.setInt(3, purchase.getAmount());
-			pstmt.setString(4, purchase.getMemberId());
-			pstmt.setTimestamp(5, new Timestamp(purchase.getPdate().getTime()));
+			pstmt.setString(3, purchase.getMemberId());
+			pstmt.setTimestamp(4, new Timestamp(purchase.getPdate().getTime()));
+			pstmt.setInt(5, purchase.getAmount());
+			pstmt.setString(6, purchase.getName());
+			pstmt.setString(7, purchase.getProgress());
 			pstmt.executeUpdate(); 
 		} catch (SQLException e){
 			e.printStackTrace();
@@ -122,6 +125,24 @@ public class PurchaseDao {
 			JdbcUtil.close(pstmt);
 		}
 	}
+	*/
+	
+	public void updateProgress(Connection conn, int purchaseId, String progress) 
+			throws SQLException {
+		PreparedStatement pstmt=null; 
+		try {
+			pstmt = conn.prepareStatement
+			("update purchase set progress=? where purchaseId=?");
+			pstmt.setString(1, progress);
+			pstmt.setInt(2, purchaseId);
+			pstmt.executeUpdate(); 
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(pstmt);
+		}
+	}
 	
 	public int selectCount(Connection conn) throws SQLException {
 		Statement stmt = null; 
@@ -137,7 +158,7 @@ public class PurchaseDao {
 		}
 	}
 	
-	*/
+	
 	
 	public List<Purchase> selectList(Connection conn) 
 			throws SQLException {
@@ -155,9 +176,104 @@ public class PurchaseDao {
 				purchase.setPurchaseId(rs.getInt(1));
 				purchase.setProductId(rs.getInt(2));
 				purchase.setPrice(rs.getInt(3));
-				purchase.setAmount(rs.getInt(4));
-				purchase.setMemberId(rs.getString(5));
-				purchase.setPdate(rs.getTimestamp(6));
+				purchase.setMemberId(rs.getString(4));
+				purchase.setPdate(rs.getTimestamp(5));
+				purchase.setAmount(rs.getInt(6));
+				purchase.setName(rs.getString(7));
+				purchase.setProgress(rs.getString(8));
+				purchaseList.add(purchase);
+			}
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return purchaseList;
+	}
+	
+	public List<Purchase> selectListByMemberId(Connection conn, String memberId) 
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Purchase> purchaseList = null;
+		try {
+			pstmt = conn.prepareStatement
+					("select * from purchase where memberId=?");
+			pstmt.setString(1, memberId);
+			rs  = pstmt.executeQuery(); 
+			purchaseList = new ArrayList<Purchase>();
+			while (rs.next()){
+				Purchase purchase = new Purchase();
+				purchase.setPurchaseId(rs.getInt(1));
+				purchase.setProductId(rs.getInt(2));
+				purchase.setPrice(rs.getInt(3));
+				purchase.setMemberId(rs.getString(4));
+				purchase.setPdate(rs.getTimestamp(5));
+				purchase.setAmount(rs.getInt(6));
+				purchase.setName(rs.getString(7));
+				purchase.setProgress(rs.getString(8));
+				purchaseList.add(purchase);
+			}
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return purchaseList;
+	}
+	
+	// final은 수정이 안된다는 키워드
+		// 페이지 당 5개
+		private static final int MOVIE_COUNT_PER_PAGE = 5;
+
+		public PurchaseListView getPurchaseList(Connection conn, int pageNumber)
+				throws SQLException {
+			int currentPageNumber = pageNumber;
+			int purchaseTotalCount = selectCount(conn);
+			List<Purchase> purchaseList = null;
+			int firstRow = 0;
+			int endRow = 0;
+			try {
+				if (purchaseTotalCount > 0) {
+					firstRow = (pageNumber - 1) * MOVIE_COUNT_PER_PAGE + 1;
+					endRow = firstRow + MOVIE_COUNT_PER_PAGE - 1;
+					purchaseList = selectListLimit(conn, firstRow, endRow);
+				} else {
+					currentPageNumber = 0;
+					purchaseList = Collections.emptyList();
+				}
+				
+			} catch (SQLException e) {} 
+			finally {
+				JdbcUtil.close(conn);
+			}
+			return new PurchaseListView(purchaseList,
+					purchaseTotalCount, currentPageNumber,
+					MOVIE_COUNT_PER_PAGE, firstRow, endRow);
+		}
+
+	public List<Purchase> selectListLimit(Connection conn, int firstRow, int endRow) 
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Purchase> purchaseList = null;
+		try {
+			pstmt = conn.prepareStatement
+					("select * from purchase limit ?,?");
+			pstmt.setInt(1, firstRow-1);
+			pstmt.setInt(2, endRow);
+			rs  = pstmt.executeQuery(); 
+			purchaseList = new ArrayList<Purchase>();
+			while (rs.next()){
+				Purchase purchase = new Purchase();
+				purchase.setPurchaseId(rs.getInt(1));
+				purchase.setProductId(rs.getInt(2));
+				purchase.setPrice(rs.getInt(3));
+				purchase.setMemberId(rs.getString(4));
+				purchase.setPdate(rs.getTimestamp(5));
+				purchase.setAmount(rs.getInt(6));
+				purchase.setName(rs.getString(7));
+				purchase.setProgress(rs.getString(8));
 				purchaseList.add(purchase);
 			}
 		} finally {

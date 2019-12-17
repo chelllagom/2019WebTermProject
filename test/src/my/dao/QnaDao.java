@@ -265,6 +265,36 @@ public class QnaDao {
 		return qnaList;
 	}
 	
+	public List<Qna> selectListByMemberId(Connection conn, String memberId) 
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Qna> qnaList = null;
+		try {
+			pstmt = conn.prepareStatement
+					("select * from qna where memberId = ?");	
+			pstmt.setString(1, memberId);
+			rs  = pstmt.executeQuery(); 
+			qnaList = new ArrayList<Qna>();
+			while (rs.next()){
+				Qna qna = new Qna(); 
+				qna.setQnaId(rs.getInt(1));
+				qna.setMemberId(rs.getString(2));
+				qna.setProductId(rs.getInt(3));
+				qna.setTitle(rs.getString(4));
+				qna.setContents(rs.getString(5));
+				qna.setProgress(rs.getString(6));
+				qna.setWdate(rs.getTimestamp(7));
+				qnaList.add(qna);
+			}
+		} finally {
+			JdbcUtil.close(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return qnaList;
+	}
+	
 	public List<Qna> selectListByProgress(Connection conn, String progress) 
 			throws SQLException {
 		PreparedStatement pstmt = null;

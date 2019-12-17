@@ -47,6 +47,7 @@ try{
 	dao.updateFav(conn, productId, 1);
 	product = dao.selectById(conn, productId);
 }catch(SQLException e){}
+JdbcUtil.close(conn);
 int price = product.getPrice();
 int discount = product.getDiscount();
 double priceDouble = price * discount * 0.01;

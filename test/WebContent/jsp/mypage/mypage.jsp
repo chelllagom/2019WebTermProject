@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ page import="my.dao.*,my.util.*,my.model.*,java.util.*,java.sql.*" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +12,13 @@
 <body>
 <%
         request.setCharacterEncoding("UTF-8");
+		String memberId = (String)session.getAttribute("LOGIN");
+		Connection conn = ConnectionProvider.getConnection();
+		List<Purchase> purchases = null;
+		try{
+			PurchaseDao dao = new PurchaseDao();
+			purchases = dao.selectListByMemberId(conn, memberId);
+		}catch(SQLException e){}
 %>
 <div id="wrap">
 	<div class="header_bar">
@@ -66,22 +75,20 @@
 				<table style="width: 100%">
 			        <tr>
 			        	<th style="width: 100px;">주문 번호</th>
-			        	<th style="width: 150px;">이미지</th>
 			        	<th style="width: 600px;">상품 정보</th>
 			        	<th style="width: 70px;">수량</th>
 			        	<th style="width: 100px;">상품 구매 금액</th>
 			        	<th style="width: 150px;">주문 처리 상태</th>
-			        	<th style="width: 80px;">반품 신청</th>
 			        </tr>
+			        <c:forEach var="purchase" items="<%=purchases%>">
 			        <tr>
-			            <td>주문 번호</td>
-			            <td style="width: 150px; height: 150px;"><img src="" alt="미니이미지"/></td>
-			            <td><div class="big">상품제목</div><br><div class="small">상품메모</div></td>
-			            <td><strong>수량</strong></td>
-			            <td><div class="big">상품금액</div></td>
-			            <td class="small">처리 or 미처리</td>     
-			   			<td><button style="width: 60px; height: 25px;" type="button">신청</button></td>
+			            <td>${purchase.purchaseId}</td>
+			            <td><div class="big">${purchase.name }</div></td>
+			            <td><strong>${purchase.amount }</strong></td>
+			            <td><div class="big">${purchase.price }</div></td>
+			            <td class="small">${purchase.progress }</td>     
 			 		</tr>
+			 		</c:forEach>
 			 	</table>
 		 	</div>
 	</div>

@@ -9,16 +9,20 @@ public class Purchase {
 	private int amount;
 	private String memberId;
 	private Date pdate;
+	private String name;
+	private String progress;
 	
 	public Purchase() {}
 
-	public Purchase(int productId, int price, int amount, String memberId, Date pdate) {
+	public Purchase(int productId, int price, int amount, String memberId, Date pdate, String name, String progress) {
 		super();
 		this.productId = productId;
 		this.price = price;
 		this.amount = amount;
 		this.memberId = memberId;
 		this.pdate = pdate;
+		this.name = name;
+		this.progress = progress;
 	}
 
 	public int getPurchaseId() {
@@ -67,6 +71,22 @@ public class Purchase {
 
 	public void setPdate(Date pdate) {
 		this.pdate = pdate;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getProgress() {
+		return progress;
+	}
+
+	public void setProgress(String progress) {
+		this.progress = progress;
 	}
 	
 	

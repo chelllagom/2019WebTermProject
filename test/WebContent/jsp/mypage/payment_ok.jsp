@@ -19,15 +19,20 @@ ProductDao dao = new ProductDao();
 PurchaseDao dao2 = new PurchaseDao();
 for(int i=1; i<=productCount.intValue(); i++) {
 	cart = (Cart)session.getAttribute("product"+i);
+	if(cart == null)
+		continue;
 	int productId = cart.getProductId();
 	int amount = cart.getAmount();
 	int price = 0;
+	int discount = 0;
 	Product product = new Product();
 	try{
 		dao.updateFav(conn, productId, 2);
 		product = dao.selectById(conn, productId);
-		price = product.getPrice() - product.getDiscount();
-		Purchase purchase = new Purchase(productId, price, amount, memberId, new java.util.Date());
+		discount = ((int)(product.getPrice() * 0.01 * product.getDiscount()))/10 * 10;
+		price = product.getPrice() - discount + 3500;
+		 
+		Purchase purchase = new Purchase(productId, price, amount, memberId, new java.util.Date(), product.getName(), "미처리");
 		dao2.insert(conn, purchase);
 	}catch(SQLException e){}
 }

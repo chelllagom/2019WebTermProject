@@ -48,7 +48,7 @@
     <div class="header_menu">
     	<ul>
        	  <span class="header_span_menu">
-       	  	<li><a href="../itempage/item.jsp?title=전체상품">전체상품</a></li>
+       	  	<li><a href="../itempage/item.jsp?title=전체">전체</a></li>
   			<li><a href="../itempage/item.jsp?title=화병">화병</a></li>
   			<li><a href="../itempage/item.jsp?title=조화">조화</a></li>
   			<li><a href="../itempage/item.jsp?title=바구니">바구니</a></li>
