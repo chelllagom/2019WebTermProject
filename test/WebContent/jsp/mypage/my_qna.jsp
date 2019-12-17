@@ -61,7 +61,7 @@
 		</div>
 	</div>
 
-	<div style="background-color: red;" class="right_box">
+	<div class="right_box2">
 		<jsp:include page="../board/list.jsp" flush="true"></jsp:include>
 	</div>
 </div>

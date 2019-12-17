@@ -74,16 +74,16 @@ div.container1{
 	display: inline-block;
 	float: left;
 }
-.right_box, .right_box1, .right_box2{
+.right_box, .right_box1{
 	width: 1500px;
 	height: auto;
-	float: right;
+	/* float: right; */
+	margin-left: 350px;
 }
 .right_box2{
 	width: 1500px;
 	height: auto;
 	float: right;
-	
 }
 .total_box, .total_box1{
 	width: 1900px;
