@@ -67,7 +67,7 @@ window.open("../board/write.jsp", "startpop", "top=0, left=0, width=470, height=
 			<td>필요</td>
 			<td>해요</td>
 		</tr>
-		<tr class="even">
+		<!-- <tr class="even">
 			<td>데베</td>
 			<td>연결</td>
 			<td>필요</td>
@@ -96,11 +96,11 @@ window.open("../board/write.jsp", "startpop", "top=0, left=0, width=470, height=
 			<td>연결</td>
 			<td>필요</td>
 			<td>해요</td>
-		</tr>    
+		</tr>     -->
 		</table>
 		</a>
 		
-		<div style="margin-left: 700px; margin-top: 40px;">
+		<!-- <div style="margin-left: 700px; margin-top: 40px;">
 		<ul class="ul_pagination">  
 		    <li class="li_pagination"><a href="#">1</a></li>  
 		    <li class="li_pagination"><a href="#">2</a></li>  
@@ -113,7 +113,7 @@ window.open("../board/write.jsp", "startpop", "top=0, left=0, width=470, height=
 		    <li class="li_pagination"><a href="#">9</a></li>  
 		    <li class="li_pagination"><a href="#">10</a></li>  
 		</ul>
-		</div>
+		</div> -->
 	</div>
 	
 	<br></br>
