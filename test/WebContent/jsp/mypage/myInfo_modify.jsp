@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>인테리어소품 코제트</title>
-<link href="../../css/join.css" rel="stylesheet" type="text/css" />
+<link href="../../css/mypage.css" rel="stylesheet" type="text/css"/>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 function check(){
 	var form = document.form1;
-	var userId = document.getElementById('userId').value.trim();
-	if(userId.length ==0){
-		alert("아이디를 입력해주세요");
+	var daddress = document.getElementById('daddress').value.trim();
+	if(daddress.length ==0){
+		alert("주소를 입력해주세요");
 	}else{
 		form.submit();
 	}	
@@ -327,32 +327,75 @@ function validatePassword2()
 		input.value=param
 	}
 </script>
-
 </head>
-
 <body>
+<%
+        request.setCharacterEncoding("UTF-8");
+%>
+<div id="wrap">
+	<div class="header_bar">
+	    <div class="header_logmenu">
+		    <ul class="nav">	
+				<%
+					if(session.getAttribute("LOGIN") == null) // 로그인이 안되었을 때
+		        		{
+				%>
+					<li><a href="../login/login.jsp"><span class="loginBotton">로그인</span></a></li>
+				<%
+						} else {
+				%>
+					<li><a href="../login/logout.jsp"><span class="loginBotton">로그아웃</span></a></li>
+					<li style="padding-left: 10px;"><a href="mypage.jsp"><span class="loginBotton">마이페이지</span></a></li>
+				<%
+						}
+				%>
+			</ul>
+	    </div>
+	    <div class="searchbox">
+	      <form action="../itempage/item.jsp" method="post" name="search">
+	    	<input name="searchbox" type="text" 
+	        style="background-color:transparent;border:0 solid black;width:200px;height:35px;font-size:15px;"/>
+	      </form>
+	    </div>
+  	</div>
+  	<div class="header_name">
+      <div class="header_name_img">
+      	<a href="../index/index.jsp">
+      	<img src="../../images/new_headername.PNG" 
+      		onerror="javascript:this.src='../../images/new_headername.png'" width="294" height="44" /></a>
+    </div>
+	</div>
+	<br><br><hr>
+	<di class="container1">
+		<p class="title">MY PAGE</p>
+  		<p class="mini_title">회원정보 수정</p>
+		<br><br>
+	</div>
 
-<div id=wrap>
-	<jsp:include page="../form/header.jsp" flush="true"></jsp:include>
-	<br><br><br><br>
-	<div class=table_area>
-	<form action="joinFinish.jsp" method="post" name="form1">
-		<table class="type03" border="1" cellpadding="3" cellspacing="0">
+<div class="total_box1">
+	<div class="left_box">		
+		<div class="button-area">
+			<a href="mypage.jsp" class="button02">주문내역 조회</a>
+		</div>
+		<div class="button-area1">
+			<a href="my_qna.jsp" class="button02">게시물 관리</a>
+		</div>
+	</div>
+
+	<div class="right_box1">
+	<form action="mypage.jsp" method="post" name="form1">
+			<table class="type03" border="1" cellpadding="3" cellspacing="0">
 		 
         <tr>
         <th bgcolor="#eeeeee" scope="row">아이디<span class="list"> *</span></th>
 			<td>
 				<span>
 					<input type="text" id="userId" name="userId" class="input-text" placeholder="아이디" maxlength="20" onfocusout="validateUserId()"/>
-				<input type="button" value="중복확인"/>
 				</span>
-				
-				<div id="userId_alert" class="alert">공백없이 4~16자의 영문/숫자를 조합하여 입력해주세요.</div>
 			</td>
 		</tr>
-        
         <tr>
-          <th bgcolor="#eeeeee" scope="row">비밀번호 <span class="list">*</span></th>
+          <th bgcolor="#eeeeee" scope="row">현재 비밀번호</th>
           <td>
           <span>
                <input type="password" name="password" id="password" class="input-text" placeholder="비밀번호" maxlength="20" onfocusout="validatePassword()"/>
@@ -361,13 +404,21 @@ function validatePassword2()
          </td>
         </tr>
         <tr>
-          <th bgcolor="#eeeeee" scope="row">비밀번호 확인 <span class="list">*</span></th>
+          <th bgcolor="#eeeeee" scope="row">새 비밀번호</th>
+          <td>
+          <span>
+               <input type="password" name="password" id="password" class="input-text" placeholder="비밀번호" maxlength="20" onfocusout="validatePassword()"/>
+    	  </span>      
+    	  <div id="password_alert" class="alert"> 공백없이 8~15자의 영문/숫자를 조합하여 입력해주세요.</div>
+         </td>
+        </tr>
+        <tr>
+          <th bgcolor="#eeeeee" scope="row">새 비밀번호 확인 </th>
           <td>
             <span>
             <input type="password" name="password2" id="password2" class="input-text" placeholder="비밀번호" maxlength="20" onfocusout="validatePassword2()" />
             </span>      
               <div id="password2_alert" class="alert"> 비밀번호 확인을 위해 다시 한 번 입력해주세요.</div>
-         
           </td>
         </tr>
         
@@ -381,25 +432,22 @@ function validatePassword2()
           	<span>
             	<input type="text" name="userName" id="userName" class="input-text" placeholder="이름" maxlength="20" onfocusout="validateUserName()"/>
            	</span>
-          <div id="userName_alert" class="alert"></div>
         </td>
         </tr>
         
         <tr>
-          <th width="122" height="46" bgcolor="#eeeeee" scope="row">휴대폰 번호 <span class="list">*</span></th>
+          <th width="122" height="46" bgcolor="#eeeeee" scope="row">휴대폰 번호</th>
           <td width="560">
-            <select name="phoneNum1" id="phoneNum1" style="width: 200px; height: 30px;">
-              <option value="010">010</option>
-            </select>
+              <input type="number" name="phoneNum1" id="phoneNum1" class="input-text" placeholder="010" maxlength="3" onfocusout="validatePhoneNum1()"/>
             -
             
             <span>
-            <input type="number" name="phoneNum2" id="phoneNum2" class="input-text" placeholder="휴대폰번호" maxlength="20" onfocusout="validatePhoneNum2()" />
+            <input type="number" name="phoneNum2" id="phoneNum2" class="input-text" maxlength="4" onfocusout="validatePhoneNum2()" />
             </span>
             
             -
 			 <span>
-            <input type="number" name="phoneNum3" id="phoneNum3" class="input-text" placeholder="휴대폰번호" maxlength="20" onfocusout="validatePhoneNum3()" />		
+            <input type="number" name="phoneNum3" id="phoneNum3" class="input-text" maxlength="4" onfocusout="validatePhoneNum3()" />		
 			</span>
 			
 			<div id="phoneNum2_alert" class="alert"></div>
@@ -410,24 +458,13 @@ function validatePassword2()
         
         
         <tr>
-          <th bgcolor="#eeeeee" scope="row">이메일 <span class="list">*</span></th>
+          <th bgcolor="#eeeeee" scope="row">이메일</th>
           <td>
            <div>
-            <input type="text" name="email1" id="email1" class="input-text" placeholder="이메일" maxlength="20" onfocusout="validateEmail1()"/>
+            <input type="text" name="email1" id="email1" class="input-text" maxlength="20" onfocusout="validateEmail1()"/>
             @
-            <input type="text" name="email2" id="email2" class="input-text" placeholder="이메일" maxlength="20" onfocusout="validateEmail2()" />
-            <span id="email1_alert" class="alert"></span>
-            <span id="email2_alert" class="alert"></span>
-            <input type="button" value="중복확인"/>
-            </div>
-            
-            <select name="email3" id="email3"  onchange="hotinsert(this.value)">
-              <option selected="selected">직접입력</option>
-              <option value="naver.com" onclick="hotinsert('naver.com')">gmail.com</option>
-              <option value="naver.com" onclick="hotinsert('naver.com')">naver.com</option>
-              <option value="hanmail.net"  onclick="hotinsert('hanmail.net')">hanmail.net</option>
-              <option value="nate.com"  onclick="hotinsert('nate.com')">nate.com</option>
-            </select>
+            <input type="text" name="email2" id="email2" class="input-text" maxlength="20" onfocusout="validateEmail2()" />
+           </div>
           </td>
         </tr>  
        
@@ -444,23 +481,19 @@ function validatePassword2()
           </tr>
         
       </table>
-      
-      <br><br><br><br>
-      <jsp:include page="joinUnder.jsp" flush="true"></jsp:include>
-      
-      <br><br>
-        <div class="button-area" style="margin-left: 300px;">
-			<input type="button" class="button01" onclick="check()" value="가입하기"> 
+      <div class="button-area3" style="margin-left: 450px;">
+			<input type="button" class="button03" onclick="check()" value="수정하기"> 
 		</div>
 		</form>
-		<div class="button-area" style="margin-left: 20px;">
-			<a href="../index/index.jsp" class="button01">취소하기</a>
-		</div>
+	</div>
 </div>
-
-
+		<br><br>
+		
+		
+		
+		
+	
 	<jsp:include page="../form/footer.jsp" flush="true"></jsp:include>
-</div>
 
 </body>
 </html>

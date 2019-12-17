@@ -238,8 +238,8 @@ function cart(){
 	}
 		var productId = document.getElementById("productId").value.trim();
 		var amount = document.getElementById("amount").value.trim(); //상품 개수 담아서 보내기
-		var popupX = (window.screen.width/2) - (378 / 2);
-		var popupY= (window.screen.height/2) - (240 / 2);
+		/* var popupX = (window.screen.width / 2) - (378 / 2);
+		var popupY= (window.screen.height / 2) - (240 / 2); */
 		window.open("cart_popup.jsp?productId=" + productId + "&amount="+amount, "startpop", "width=378, height=240,scrollbars=no, resizable=no ,status=no ,left='+ popupX + ', top='+ popupY");
 	
 }
