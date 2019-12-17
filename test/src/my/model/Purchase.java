@@ -12,9 +12,8 @@ public class Purchase {
 	
 	public Purchase() {}
 
-	public Purchase(int purchaseId, int productId, int price, int amount, String memberId, Date pdate) {
+	public Purchase(int productId, int price, int amount, String memberId, Date pdate) {
 		super();
-		this.purchaseId = purchaseId;
 		this.productId = productId;
 		this.price = price;
 		this.amount = amount;

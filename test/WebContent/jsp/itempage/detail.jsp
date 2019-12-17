@@ -48,7 +48,7 @@ Product product = null;
 Connection conn = ConnectionProvider.getConnection();
 try{
 	ProductDao dao = new ProductDao();
-	//dao.updateFav(conn, productId, 1);
+	dao.updateFav(conn, productId, 1);
 	product = dao.selectById(conn, productId);
 }catch(SQLException e){}
 int price = product.getPrice();
@@ -236,12 +236,14 @@ function cart(){
 		alert("로그인이 필요합니다.");
 		location.href = "../login/login.jsp";
 	}
+	else
+	{
 		var productId = document.getElementById("productId").value.trim();
 		var amount = document.getElementById("amount").value.trim(); //상품 개수 담아서 보내기
 		/* var popupX = (window.screen.width / 2) - (378 / 2);
 		var popupY= (window.screen.height / 2) - (240 / 2); */
 		window.open("cart_popup.jsp?productId=" + productId + "&amount="+amount, "startpop", "width=378, height=240,scrollbars=no, resizable=no ,status=no ,left='+ popupX + ', top='+ popupY");
-	
+	}	
 }
 function purchase(){
 	var id = document.getElementById("memberId").value.trim();
@@ -250,10 +252,12 @@ function purchase(){
 		alert("로그인이 필요합니다.");
 		location.href = "../login/login.jsp";
 	}
+	else
+	{
 		var productId = document.getElementById("productId").value.trim();
 		var amount = document.getElementById("amount").value.trim(); //상품 개수 담아서 보내기
 		location.href="putcart.jsp?productId=" + productId + "&amount="+amount;
-	
+	}
 }
 </script>
 </div>

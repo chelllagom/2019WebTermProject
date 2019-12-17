@@ -41,7 +41,7 @@
         detailimg = multi.getFilesystemName("detailimg");
         category = multi.getParameter("category");
         memo = multi.getParameter("memo");
-        Product product = new Product(name, maker, price, discount, origin, thumbnailimg, detailimg, 0, category, memo);
+        Product product = new Product(name, maker, price, discount, origin, thumbnailimg, detailimg, 0, category, memo, 0);
         ProductDao dao = new ProductDao();
         dao.insert(conn, product);
         

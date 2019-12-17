@@ -10,27 +10,28 @@
 </head>
 <body>
 <%
-	request.setCharacterEncoding("utf-8");
-	String userId = request.getParameter("userId");
-	String password = request.getParameter("password");
-	String userName = request.getParameter("userName");
-	String phoneNum1 = request.getParameter("phoneNum1");
-	String phoneNum2 = request.getParameter("phoneNum2");
-	String phoneNum3 = request.getParameter("phoneNum3");
-	String tel = phoneNum1 + phoneNum2 + phoneNum3;
-	String email1 = request.getParameter("email1");
-	String email2 = request.getParameter("email2");
-	String email = email1 + email2;
-	String sample6_postcode = request.getParameter("sample6_postcode");
-	String sample6_address = request.getParameter("sample6_address");
-	String daddress = request.getParameter("daddress");
-	String address = sample6_postcode + " " + sample6_address + " " + daddress;
-	Connection conn = ConnectionProvider.getConnection();
+request.setCharacterEncoding("utf-8");
+String memberId = (String)session.getAttribute("LOGIN");
+Integer productCount = (Integer)session.getAttribute("productCount");
+Cart cart = null;
+Connection conn = ConnectionProvider.getConnection();
+ProductDao dao = new ProductDao();
+PurchaseDao dao2 = new PurchaseDao();
+for(int i=1; i<=productCount.intValue(); i++) {
+	cart = (Cart)session.getAttribute("product"+i);
+	int productId = cart.getProductId();
+	int amount = cart.getAmount();
+	int price = 0;
+	Product product = new Product();
 	try{
-		MemberDao dao = new MemberDao();
-		Member member = new Member(userId, password, tel, userName, email, address);
-		dao.insert(conn, member);
+		dao.updateFav(conn, productId, 2);
+		product = dao.selectById(conn, productId);
+		price = product.getPrice() - product.getDiscount();
+		Purchase purchase = new Purchase(productId, price, amount, memberId, new java.util.Date());
+		dao2.insert(conn, purchase);
 	}catch(SQLException e){}
+}
+JdbcUtil.close(conn);
 %>
 <div id="wrap">
 	<jsp:include page="../form/header.jsp" flush="true"></jsp:include>
