@@ -229,7 +229,7 @@ totalPrice *= 10;
 <script>
 function cart(){
 	var id = document.getElementById("memberId").value.trim();
-	if( id == "")
+	if( id == "null/")
 	{
 		alert("로그인이 필요합니다.");
 		location.href = "../login/login.jsp";

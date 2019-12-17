@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ page import="my.dao.*,my.util.*,my.model.*,java.util.*,java.sql.*" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -49,7 +51,20 @@ function MM_swapImage() { //v3.0
 </head>
 
 <body onload="MM_preloadImages('../../images/bestseller_11.PNG','../../images/bestseller_12.PNG','../../images/bestseller_13.PNG','../../images/bestseller_14.PNG')">
-
+<%
+	Connection conn = ConnectionProvider.getConnection();
+	List<Product> bestProducts = null;
+	try{
+		ProductDao dao = new ProductDao();
+		bestProducts = dao.selectListByFavLimit(conn, 4);
+	}catch(SQLException e){}
+	
+	List<Product> newProducts = null;
+	try{
+		ProductDao dao = new ProductDao();
+		newProducts = dao.selectListByFavLimit(conn, 8);
+	}catch(SQLException e){}
+%>
 <div id="wrap">
   <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
   
@@ -67,7 +82,8 @@ function MM_swapImage() { //v3.0
   </div>
   
   
-	<div class="ranking_img">	
+	<div class="item_wrap">	
+  		<c:forEach var="product" items="<%=bestProducts%>">
   		<div class="item">
 			<a href="../itempage/detail.jsp?productId=${product.productId}">	
  					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
@@ -85,6 +101,7 @@ function MM_swapImage() { //v3.0
 				<p>${product.memo}</p>
 			</div>
 		</div>
+		</c:forEach>
 	</div>
   
   
@@ -92,7 +109,8 @@ function MM_swapImage() { //v3.0
   <div class="new_product_logo">
   	<div style="display: inline-block;"><h1 style="font-size : 3em; color: #555;">새로나온 신상품</h1></div>
   </div>
-	<div class="ranking_img">
+	<div class="item_wrap">
+	<c:forEach var="product" items="<%=newProducts%>">
 		<div class="item">
 			<a href="../itempage/detail.jsp?productId=${product.productId}">	
  					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
@@ -110,6 +128,7 @@ function MM_swapImage() { //v3.0
 				<p>${product.memo}</p>
 			</div>
 		</div>
+	</c:forEach>
 	</div>
   
   <div class="bestseller_logo">
