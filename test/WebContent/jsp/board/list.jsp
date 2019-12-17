@@ -34,22 +34,20 @@
 		
 %> --%>
 <div class="table_wrap">
-<table style="width: 70%" cellpadding="0" cellspacing="0" border="0">
-  <tr height="5"><td width="5"></td></tr>
- <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-   <td>번호</td>
-   <td>제목</td>
-   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
-  </tr>
+<table style="width: 60%" cellpadding="0" cellspacing="0" border="0">
+ <tr style="text-align:center;">
+   <td style="width: 10%">번호</td>
+   <td style="width: 50%">제목</td>
+ </tr>
   
 <%-- <%
 	if(total==0) {
 %> --%>
 
 	 	<tr align="center" bgcolor="#FFFFFF" height="30">
+	 	   <td>&nbsp;</td>
 	 	   <td colspan="6">등록된 글이 없습니다.</td>
-	 	  		</tr>
+	 	</tr>
 
 <%-- <%
 	 	} else {
