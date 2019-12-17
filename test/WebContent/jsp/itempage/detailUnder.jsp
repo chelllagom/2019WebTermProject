@@ -80,6 +80,7 @@
 		</tr>
 		</c:forEach>
 <!-- 	<tr class="even">
+
 			<td>데베</td>
 			<td>연결</td>
 			<td>필요</td>

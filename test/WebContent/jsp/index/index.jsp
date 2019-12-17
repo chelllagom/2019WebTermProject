@@ -6,6 +6,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>인테리어소품 코제트</title>
 <link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('.bxslider').bxSlider({
+        auto: true, // 자동으로 애니메이션 시작
+        speed: 500,  // 애니메이션 속도
+        pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
+        mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
+        autoControls: true, // 시작 및 중지버튼 보여짐
+        pager: true, // 페이지 표시 보여짐
+        captions: true, // 이미지 위에 텍스트를 넣을 수 있음
+    });
+});
+</script>
 <script type="text/javascript">
 function MM_preloadImages() { //v3.0
   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
@@ -37,37 +53,67 @@ function MM_swapImage() { //v3.0
 <div id="wrap">
   <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
   
-  <div class="main_img">
-  	<img src="../../images/mainimg.PNG" onerror="javascript:this.src='../../images/mainimg.png'"/>
-  </div>
+	  <ul class="bxslider"> 
+	  	<li>
+	  		<img src="../../images/mainimg.PNG" onerror="javascript:this.src='../../images/mainimg.png'"/>
+	  	</li>
+	  	<li>
+	  		<img src="../../images/mainimg1.PNG" onerror="javascript:this.src='../../images/mainimg1.png'"/>
+	  	</li>
+	  </ul>
   
   <div class="ranking_logo">
-  	<img src="../../images/rankinglogo.PNG" onerror="javascript:this.src='../../images/rankinglogo.png'"/>
+  	<div style="display: inline-block;"><h1 style="font-size : 3em; color: #555;">고객님이 좋아하실 만한 상품</h1></div>
   </div>
   
-  <%for(int i =0; i<4; i++){ %>
+  
 	<div class="ranking_img">	
-  		<a href="../itempage/detail.jsp">
-  			<img src="../../images/sampleimg1.PNG" onerror="javascript:this.src='../../images/sampleimg1.png'" width="369" height="595"/>
-  		</a>
+  		<div class="item">
+			<a href="../itempage/detail.jsp?productId=${product.productId}">	
+ 					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
+			</a>
+			<div class="thumb_name"><strong>${product.name}</strong></div>
+			<div class="thumb_price">
+				<strong>
+					<span class="number">${product.price}원</span> 
+				</strong>
+				<strong >
+					<span style="margin-left: 10px;" class="sale">${product.discount}% 할인 중</span>
+				</strong>
+			</div>
+			<div class="thumb_memo">
+				<p>${product.memo}</p>
+			</div>
+		</div>
 	</div>
-  <%} %>
+  
   
   
   <div class="new_product_logo">
-   <img src="../../images/newproductlogo.PNG" onerror="javascript:this.src='../../images/newproductlogo.png'" width="1900" height="213" />
-   </div>
-  <%for(int i =0; i<8; i++){ %>
+  	<div style="display: inline-block;"><h1 style="font-size : 3em; color: #555;">새로나온 신상품</h1></div>
+  </div>
 	<div class="ranking_img">
-		<a href="../itempage/detail.jsp">
-  			<img src="../../images/sampleimg1.PNG" onerror="javascript:this.src='../../images/sampleimg1.png'" width="369" height="595"/>
-  		</a>
+		<div class="item">
+			<a href="../itempage/detail.jsp?productId=${product.productId}">	
+ 					<img src="../../images/${product.thumbnailimg}" width="295" height="385"/>
+			</a>
+			<div class="thumb_name"><strong>${product.name}</strong></div>
+			<div class="thumb_price">
+				<strong>
+					<span class="number">${product.price}원</span> 
+				</strong>
+				<strong >
+					<span style="margin-left: 10px;" class="sale">${product.discount}% 할인 중</span>
+				</strong>
+			</div>
+			<div class="thumb_memo">
+				<p>${product.memo}</p>
+			</div>
+		</div>
 	</div>
-  <%} %>
-  
   
   <div class="bestseller_logo">
-  <img src="../../images/bestseller_01.png" width="1900" height="127" />
+  	<div style="display: inline-block;"><h1 style="font-size : 3em; color: #555;">코제트 MD가 추천하는 상품!</h1></div>
   </div>
   
   <div class="bestseller_miniimg">
@@ -86,9 +132,14 @@ function MM_swapImage() { //v3.0
     
     <div class="bestseller_imgbar">
       <div class="bestseller_img">
-      <img src="../../images/bestseller_11.PNG" onerror="javascript:this.src='../../images/bestseller_11.png'" name="bestseller_event" width="1602" height="552" id="bestseller_event" />
+      <img src="../../images/bestseller_11.PNG" name="bestseller_event" width="1602" height="552" usemap="#bestseller_eventMap" id="bestseller_event" onerror="javascript:this.src='../../images/bestseller_11.png'" border="0" />
+      <map name="bestseller_eventMap" id="bestseller_eventMap">
+        <area shape="rect" coords="-1,-1,781,549" href="../itempage/detail.jsp?productId=${product.productId}" />
+        <area shape="rect" coords="822,1,1600,549" href="../itempage/detail.jsp?productId=${product.productId}" />
+      </map>
       </div>
     </div>
+  </div>
   </div>
   <div class="background_img">
     <img src="../../images/background.PNG" onerror="javascript:this.src='../../images/background.png'" width="1899" height="390" />

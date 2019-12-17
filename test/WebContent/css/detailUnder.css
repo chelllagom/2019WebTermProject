@@ -280,9 +280,11 @@ table.type02 td {
 	font-size: 1.1em;
 	color: #fff;
 	border-width:2px 0;
+	height: 30px;
 }
 .tbl-ex td{
 	border-style:dotted;
+	height: 20px;
 }
 .tbl-ex tr:hover td{
 	background-color: #e2c2f6;
