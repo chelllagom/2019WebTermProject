@@ -219,7 +219,9 @@ totalPrice *= 10;
 		<img src="../../images/${product.detailimg}"/>
 	</div>
 
-<jsp:include page="detailUnder.jsp" flush="true"></jsp:include>
+<jsp:include page="detailUnder.jsp" flush="true">
+<jsp:param value="${productId}" name="productId"/>
+</jsp:include>
 </div>
 
 
@@ -227,7 +229,7 @@ totalPrice *= 10;
 <script>
 function cart(){
 	var id = document.getElementById("memberId").value.trim();
-	if( id == "")
+	if( id == "null/")
 	{
 		alert("로그인이 필요합니다.");
 		location.href = "../login/login.jsp";

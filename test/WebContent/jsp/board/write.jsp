@@ -8,18 +8,17 @@
 <script language="javascript">
 	// 자바 스크립트 시작
 
-	function writeCheck() {
-		var form = document.writeform;
-
-		if (!form.title.value) {
+	function writeCheck(form) {
+		
+		if (!form.title.value.trim()) {
 			alert("제목을 적어주세요");
 			form.title.focus();
 			return;
 		}
 
-		if (!form.memo.value) {
+		if (!form.contents.value.trim()) {
 			alert("내용을 적어주세요");
-			form.memo.focus();
+			form.contents.focus();
 			return;
 		}
 
@@ -28,8 +27,12 @@
 </script>
 </head>
 <body>
+<%
+	request.setCharacterEncoding("utf-8");
+	int productId = Integer.parseInt(request.getParameter("productId"));
+%>
 	<table style="margin-left: auto; margin-right: auto;">
-		<form name=writeform method=post action="write_ok.jsp">
+		<form name=writeform method=post action="write_ok.jsp?productId=<%=productId%>">
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -56,7 +59,7 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">내용</td>
-							<td><textarea name="memo" cols="50" rows="13"></textarea></td>
+							<td><textarea name="contents" cols="50" rows="13"></textarea></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
@@ -67,10 +70,9 @@
 						</tr>
 						<tr align="center">
 							<td>&nbsp;</td>
-							<td colspan="2"><input type=button value="등록"
-								OnClick="javascript:writeCheck();"> <input type=button
-									value="취소" OnClick="javascript:history.back(-1)">
-										<td>&nbsp;</td>
+							<td colspan="2"><input type=button value="등록" OnClick="javascript:writeCheck(form);">
+							<input type=button value="취소" OnClick="javascript:history.back(-1)">
+							<td>&nbsp;</td>
 						</tr>
 					</table>
 				</td>

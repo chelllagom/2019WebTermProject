@@ -66,7 +66,7 @@ public class ProductDao {
 		} catch (SQLException e){
 			e.printStackTrace();
 		} finally {
-			//JdbcUtil.close(conn);
+			JdbcUtil.close(conn);
 			JdbcUtil.close(pstmt);
 			JdbcUtil.close(rs);
 		}
@@ -288,14 +288,15 @@ public class ProductDao {
 		return productList;
 	}
 	
-	public List<Product> selectListByFav(Connection conn) 
+	public List<Product> selectListByFavLimit(Connection conn, int limit) 
 			throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Product> productList = null;
 	try {
 		pstmt = conn.prepareStatement
-				("select * from product order by fav desc");			
+				("select * from product order by fav desc limit 1,?");	
+		pstmt.setInt(1, limit);
 		rs  = pstmt.executeQuery(); 
 		productList = new ArrayList<Product>();
 		while (rs.next()){
@@ -314,13 +315,13 @@ public class ProductDao {
 			productList.add(product);
 		}
 	} finally {
-		JdbcUtil.close(conn);
+		//JdbcUtil.close(conn);
 		JdbcUtil.close(rs);
 		JdbcUtil.close(pstmt);
 	}
 	return productList;
 }
-	/*
+	
 	public List<Product> selectListByNew(Connection conn) 
 			throws SQLException {
 		PreparedStatement pstmt = null;
@@ -328,7 +329,7 @@ public class ProductDao {
 		List<Product> productList = null;
 	try {
 		pstmt = conn.prepareStatement
-				("select * from product order by register desc");			
+				("select * from product order by productId desc");			
 		rs  = pstmt.executeQuery(); 
 		productList = new ArrayList<Product>();
 		while (rs.next()){
@@ -352,7 +353,40 @@ public class ProductDao {
 	}
 	return productList;
 }
-*/
+	
+	public List<Product> selectListByNewLimit(Connection conn, int limit) 
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Product> productList = null;
+	try {
+		pstmt = conn.prepareStatement
+				("select * from product order by productId desc limit 1,?");		
+		pstmt.setInt(1, limit);
+		rs  = pstmt.executeQuery(); 
+		productList = new ArrayList<Product>();
+		while (rs.next()){
+			Product product = new Product();
+			product.setProductId(rs.getInt(1));
+			product.setName(rs.getString(2));
+			product.setMaker(rs.getString(3));
+			product.setPrice(rs.getInt(4));
+			product.setDiscount(rs.getInt(5));
+			product.setOrigin(rs.getString(6));
+			product.setThumbnailimg(rs.getString(7));
+			product.setDetailimg(rs.getString(8));
+			product.setFav(rs.getInt(9));
+			product.setCategory(rs.getString(10));
+			productList.add(product);
+		}
+	} finally {
+		JdbcUtil.close(conn);
+		JdbcUtil.close(rs);
+		JdbcUtil.close(pstmt);
+	}
+	return productList;
+}
+
 	// final은 수정이 안된다는 키워드
 	// 페이지 당 5개
 	private static final int MOVIE_COUNT_PER_PAGE = 5;

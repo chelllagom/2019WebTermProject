@@ -60,6 +60,13 @@ li a:hover{
 	width: 1900px;
 	background-image:url("../images/headerbar.png");
 }
+.item_wrap{
+	width: 1600px;
+	height: auto;
+	margin-left: 150px;
+	margin-right: 150px;
+	
+}
 .searchbox{
 	float:right;
 	margin-top: 8px;
