@@ -23,17 +23,22 @@
 	int discount = 0;
 	for(int i=1; i<=productCount.intValue(); i++) {
 		cart = (Cart)session.getAttribute("product"+i);
+		if(cart == null)
+			continue;
 		int productId = cart.getProductId();
 		int amount = cart.getAmount();
 		Product product = new Product();
-		product = dao.selectById(conn, productId);
-		discount = ((int)(product.getPrice() * 0.01 * product.getDiscount()))/10 * 10;
-		product.setDiscount(discount);
-		product.setAmount(amount);
-		products.add(product);
-		totalPrice += product.getPrice();
-		totalDiscount += discount;
+		try{
+			product = dao.selectById(conn, productId);
+			discount = ((int)(product.getPrice() * 0.01 * product.getDiscount()))/10 * 10;
+			product.setDiscount(discount);
+			product.setAmount(amount);
+			products.add(product);
+			totalPrice += product.getPrice();
+			totalDiscount += discount;
+		}catch(SQLException e){}
 	}
+	JdbcUtil.close(conn);
 %>
 <c:set var="shippingFee" value="3500"/>
 <div id="wrap">
@@ -58,6 +63,7 @@
 		        	<th style="width: 200px;">전체금액</th>
 		        	<th style="width: 80px;">삭제</th>
 		        </tr>      
+		        <c:set var="num" value="1"/>
 		       <c:forEach var="product" items="<%=products %>">
 		        	<tr>
 		            	<td><input name="" type="checkbox" value="" checked ="on"/></td>
@@ -67,8 +73,9 @@
 		            	<td>${product.price}원</td>
 		            	<td class="memo">-${product.discount}원</td>     
 		   				<td style="font-size: 2em;"><strong>총 ${product.price - product.discount}원</strong></td>
-		   				<td><button style="width: 60px; height: 25px;" type="button">삭제</button></td>
+		   				<td><a href="cartDelete.jsp?num=${num}&type=cart"><button style="width: 60px; height: 25px;" type="button">삭제</button></a></td>
 		 			</tr>
+		 			<c:set var="num" value="${num+1}"/>
 		 		</c:forEach>
 			    <tr>  
 			        <td colspan="6"> <br/>

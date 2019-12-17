@@ -36,11 +36,7 @@ function MM_swapImage() { //v3.0
 
 </head>
 
-<body onload="MM_preloadImages('../../images/bestseller_11.PNG'
-							  ,'../../images/bestseller_12.PNG'
-							  ,'../../images/bestseller_13.PNG'
-							  ,'../../images/bestseller_14.PNG'
-							  )">
+<body>
 <%
 String memberId = (String)session.getAttribute("LOGIN");
 int productId = Integer.parseInt(request.getParameter("productId"));
