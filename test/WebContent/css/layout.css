@@ -121,6 +121,8 @@ body, input, textarea, select, button, table {
 .ranking_logo {
 	height: 184px;
 	width: 1900px;
+	text-align: center;
+	line-height: 184px;
 }
 .ranking_img {
 	height: 600px;
@@ -133,11 +135,15 @@ body, input, textarea, select, button, table {
 	height: 213px;
 	width: 1900px;
 	float:left;
+	text-align: center;
+	line-height: 213px;
 }
 .bestseller_logo {
-	height: 127px;
+	height: 200px;
 	width: 1900px;
 	float:left;
+	text-align: center;
+	line-height: 200px;
 }
 .bestseller_miniimg{
 	width: 1900px;
@@ -170,4 +176,41 @@ body, input, textarea, select, button, table {
 }
 .backgroundimg{
 	float:left;
+}
+.thumb_name{
+	width: 295px;
+	height: 30px;
+	margin-top: 20px;
+	font-size : 2em;
+	font-weight: bold;
+}
+.thumb_price{
+	width: 295px;
+	height: 20px;
+	font-size : 1.5em;
+	font-weight: bold;
+}
+.thumb_memo{
+	width: 295px;
+	height: 45px;
+	line-height: 1.42em;
+	font-size : 1.2em;
+    color: #888;
+}
+.number{
+	font-family: Tahoma, 나눔고딕, "Nanum Gothic", 나눔스퀘어, "Nanum Square", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Dotum", "돋움", "sans-serif";
+    color: #222;
+    line-height: 17px;
+}
+.sale{
+	color: #6b90dc;
+	font-size : 0.8em;
+}
+.item {
+	width: 295px;
+	height: 510px;
+	display: inline-block;
+	margin-top: 80px;
+	margin-left: 90px;
+	float: left;
 }
