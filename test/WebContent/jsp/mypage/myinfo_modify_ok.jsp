@@ -18,7 +18,7 @@
 	String tel3 = request.getParameter("phoneNum3");
 	String email1 = request.getParameter("email1");
 	String email2 = request.getParameter("email2");
-	String email = email1 + email2;
+	String email = email1 + "@" + email2;
 	String address1 = request.getParameter("sample6_postcode");
 	String address2 = request.getParameter("sample6_address");
 	String address3 = request.getParameter("daddress");

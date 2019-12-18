@@ -1,0 +1,168 @@
+@charset "EUC-KR";
+#wrap{
+	width: 1900px;
+}
+.header_name {
+	height: 100px;
+	width: 1900px;
+}
+.header_name_img {
+	height: 47px;
+	width: 397px;
+	padding-top: 20px;
+	padding-left: 800px;
+}
+.box1 {
+	width: 268px;
+	height: 800px;
+	float: left;
+	background-color: #3f4b5c;
+}
+.in_1box1{
+	width: 268px;
+	height: 267px;
+}
+.in_1box2{
+	width: 268px;
+	height: 100px;
+	display: inline-block;
+}
+.in_1box3{
+	width: 268px;
+	height: 333px;
+	background-color: #3d4858;
+}
+.name{
+	font-size: 3em;
+	text-align: center;
+	margin-top: 30px;
+}
+.name1{
+	font-size: 3em;
+	text-align: center;
+	width: 268px;
+	height: 70px;
+}
+.box2 {
+	width: 1632px;
+	height: 800px;
+	float: left;
+	background-color: rgb(237, 240, 245);
+}
+.in_2box1{
+	width: 1632px;
+	height: 60px;
+	background-color: rgb(77, 81, 89);
+}
+.in_2box2{
+	width: 360px;
+	height: 120px;
+	background-color: white;
+	float: left;
+	margin-top: 20px;
+	margin-left: 35px;
+}
+.in_2box2_1{
+	width: 120px;
+	height: 120px;
+	float: left;
+}
+.in_2box2_2{
+	width: 56px;
+	height: 56px;
+	margin-top: 32px;
+	margin-left: 32px;
+}
+.in_2box2_3{
+	width: 240px;
+	height: 120px;
+	display: inline-block;
+	line-height: 120px;
+	font-size: 1.5em;
+	margin-left: -20px;
+}
+.in_2box3{
+	width: 1000px;
+	height: auto;
+	background-color: white;
+	float: left;
+	margin-top: 40px;
+	margin-left: 35px;
+}
+.in_2box4{
+	width: 450px;
+	height: 500px;
+	background-color: white;
+	float: left;
+	margin-top: 40px;
+	margin-left: 80px;
+}
+.in_2box4_1{
+	width: 450px;
+	height: 40px;
+	display: inline-block;
+	line-height: 40px;
+	font-size: 1.5em;
+}
+.menu a{
+	cursor:pointer;
+}
+.menu .hide{
+	display:none;
+}
+nav a {
+	color: white;
+    font-family: 'Roboto', sans-serif; 
+}
+nav ul {
+    list-style-type: none;
+}
+nav li {
+	font-size: 2em;
+}
+nav li ul li {
+	font-size: 0.5em;
+}
+nav ul li >ul {
+    display: none;
+}
+nav ul li:hover >ul {
+    display:block;
+}
+.table_wrap{
+	width: 450px;
+	height: 460px;
+}
+
+table.type03 {
+	width: 1000px;
+	height: 500px;
+    text-align: left;
+    line-height: 1.5;
+    border-left: 3px solid #369;
+  	font-size : 1.3em;
+}
+table.type03 th {
+    width: 147px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #153d73;
+}
+table.type03 td {
+    width: 349px;
+    padding: 10px;
+    vertical-align: top;
+    color: #555;
+}
+
+table.type02 {
+	border: 2px double #153d73;
+	width: 1000px;
+	height: 500px;
+}
+table.type02 td,th{
+	border:1px solid #369;
+	text-align: center;
+	padding:5px;
+}

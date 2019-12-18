@@ -111,12 +111,7 @@ function validatePhoneNum3() {
 	alertEl.style.display = 'none';
 }
 
-	
-	
-	
-	
-	
-	
+
 	
 	function validateUserId() {
 		var userId = document.getElementById('userId').value.trim();
@@ -418,7 +413,6 @@ function validatePassword2()
             <input type="text" name="email2" id="email2" class="input-text" placeholder="이메일" maxlength="20" onfocusout="validateEmail2()" />
             <span id="email1_alert" class="alert"></span>
             <span id="email2_alert" class="alert"></span>
-            <input type="button" value="중복확인"/>
             </div>
             
             <select name="email3" id="email3"  onchange="hotinsert(this.value)">

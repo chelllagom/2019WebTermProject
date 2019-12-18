@@ -39,9 +39,8 @@ $(document).ready(function () {
 	List<Product> newProducts = null;
 	try{
 		ProductDao dao = new ProductDao();
-		newProducts = dao.selectListByFav(conn);
+		newProducts = dao.selectListByNew(conn);
 	}catch(SQLException e){}
-	JdbcUtil.close(conn);
 %>
 <div id="wrap">
   <jsp:include page="../form/header.jsp" flush="true"></jsp:include>
